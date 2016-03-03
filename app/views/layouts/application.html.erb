@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render "layouts/header" %>
+  <div class=" container-fluid">
+    <div class="row">
+      <div class="col-md-2" id="sidebar-wrapper">
+        <a href="#">EditProfile</a><br>
+        <a href="#">ThucDonSang</a><br>
+        <a href="#">ThucDonTrua</a><br>
+        <a href="#">Meo</a><br>
+        <a href="#">QuanLyLichSuAnUong</a><br>
+      </div>
+      <div class="col-md-8" >
+        <%= yield %>
+      </div>
+      <div class="col-md-2" >
+        <a href="#">EditProfile</a><br>
+        <a href="#">ThucDonSang</a><br>
+        <a href="#">ThucDonTrua</a><br>
+        <a href="#">Meo</a><br>
+        <a href="#">QuanLyLichSuAnUong</a><br>
+      </div>
+    </div>
+  </div>
+  <%= render 'layouts/footer' %>
+  <%= debug(params) if Rails.env.development? %>
+</body>
+</html>

@@ -1,0 +1,11 @@
+development:
+  adapter: mysql2
+  host: localhost
+  username: root
+  password:   
+  database: anHoiCham2
+production:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  url: <%= ENV["DATABASE_URL"] %>

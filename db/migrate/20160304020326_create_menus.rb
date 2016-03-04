@@ -3,6 +3,7 @@ class CreateMenus < ActiveRecord::Migration
     create_table :menus do |t|
       t.string :typeOfMenu
       t.string :content
+      t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false
     end

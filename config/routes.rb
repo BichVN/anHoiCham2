@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "menus#show"
+  root "timelines#home"
   resources :menus
   devise_for :users
   resources :users

@@ -1,5 +1,4 @@
 class MenusController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_menu, only: [:show, :edit, :update, :destroy]
 
   # GET /menus
@@ -70,6 +69,6 @@ class MenusController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_params
-      params.require(:menu).permit(:typeOfMenu, :content)
+      params.require(:menu).permit(:typeOfMenu, :content, :user_id)
     end
 end

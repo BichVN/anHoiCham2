@@ -1,1 +1,22 @@
-<h1>That is something</h1>
+<% if user_signed_in? %>
+  <div>
+    <div class="row">
+      <aside class="col-md-4">
+        <h1><%= current_user.name %></h1>
+      </aside>
+
+      <div class="col-md-8">
+      <% if current_user.menus.any? %>
+        <h3>menus (<%= current_user.menus.count %>)</h3>
+        <ol class="menus">
+          <%= render @menus %>
+        </ol>
+        <%= will_paginate @menus%>
+      <% end %>
+      <%= link_to 'New Menu', new_menu_path %>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div> Loi </div>
+<% end %>

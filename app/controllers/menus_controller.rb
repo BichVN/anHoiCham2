@@ -24,7 +24,7 @@ class MenusController < ApplicationController
   # POST /menus
   # POST /menus.json
   def create
-    @menu = Menu.new(menu_params)
+    @menu = current_user.menus.build(menu_params)
 
     respond_to do |format|
       if @menu.save
@@ -69,6 +69,6 @@ class MenusController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_params
-      params.require(:menu).permit(:typeOfMenu, :content, :user_id)
+      params.require(:menu).permit(:typeOfMenu, :content)
     end
 end

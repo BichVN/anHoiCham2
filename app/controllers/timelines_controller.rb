@@ -3,7 +3,9 @@ class TimelinesController < ApplicationController
 	
 	def home
 		if user_signed_in?
+  	  @menu = Menu.new
   	  @menus = current_user.menus.paginate(page: params[:page])
+  	  @comment = Comment.new
   	end
 	end
 end

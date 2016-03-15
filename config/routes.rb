@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root "timelines#home"
-  resources :menus, only: [:create, :destroy]  do
+  resources :menus do
   	resources :comments, only:[:create]
   end
   devise_for :users

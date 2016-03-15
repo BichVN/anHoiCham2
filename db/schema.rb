@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20160314130416) do
     t.datetime "updated_at",             null: false
   end
 
+  add_index "menus", ["user_id", "created_at"], name: "index_menus_on_user_id_and_created_at", using: :btree
   add_index "menus", ["user_id"], name: "index_menus_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|

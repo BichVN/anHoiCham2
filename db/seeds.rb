@@ -21,3 +21,8 @@ users = User.order(:created_at).take(6)
   content = Faker::Lorem.sentence(5)
   users.each {|user| user.menus.create!(typeOfMenu:typeOfMenu,content: content) }
 end
+
+#Comments
+Comment.create!(content: "abc1",
+                user_id: "1",
+                menu_id: "1")

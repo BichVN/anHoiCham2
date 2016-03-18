@@ -1,5 +1,4 @@
 class FollowersController < ApplicationController
-  before_action :verify_user!
  
   def index
     @user  = User.find params[:user_id]

@@ -9,6 +9,8 @@
       </section>
       <div class="col-md-8">
         <%= render 'users/follow_form' %>
+        <%= render 'menus/form'%>
+         <!-- <%= link_to 'New Menu', new_menu_path %> -->
         <% if current_user.menus.any? %>
         <h3>menus (<%= current_user.menus.count %>)</h3>
         <ol class="menus">
@@ -16,7 +18,6 @@
         </ol>
         <%= will_paginate @menus%>
       <% end %>
-      <%= link_to 'New Menu', new_menu_path %>
       </div>
     </div>
   </div>

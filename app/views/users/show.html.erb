@@ -1,2 +1,12 @@
 <h3>Name: <%= @user.name %></h3>
 <h3>Email: <%= @user.email %></h3>
+<div class="col-md-8">
+    <%= render 'follow_form'%>
+  </div>
+<div class="col-md-8">
+      <% if @user.menus.any? %>
+        <h3>menus(<%= @user.menus.count %>)</h3>
+         <%= render @menus %>
+        <%= will_paginate @menus %>
+      <% end %>
+</div>

@@ -3,6 +3,8 @@ class UsersController < ApplicationController
                                         :following, :followers]
     def show
         @user = User.find(params[:id])
+        @menus = @user.menus.paginate(page: params[:page])
+        @comment = Comment.new
     end
 
     def following

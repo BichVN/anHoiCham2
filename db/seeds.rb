@@ -26,3 +26,11 @@ end
 Comment.create!(content: "abc1",
                 user_id: "1",
                 menu_id: "1")
+
+# Following relationships
+users = User.all
+user  = users.first
+following = users[2..5]
+followers = users[3..9]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }

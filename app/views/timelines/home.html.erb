@@ -4,9 +4,12 @@
       <aside class="col-md-4">
         <h1><%= current_user.name %></h1>
       </aside>
-
+      <section class="stats">
+        <%= render 'shared/stats' %>
+      </section>
       <div class="col-md-8">
-      <% if current_user.menus.any? %>
+        <%= render 'users/follow_form' %>
+        <% if current_user.menus.any? %>
         <h3>menus (<%= current_user.menus.count %>)</h3>
         <ol class="menus">
           <%= render @menus %>

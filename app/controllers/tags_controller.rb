@@ -1,9 +1,4 @@
 class TagsController < ApplicationController
-	def show
-        @user = User.find(params[:id])
-        @tags = @user.tags.paginate(page: params[:page])
-  end
-
   def create
     @tag = current_user.tags.build(tag_params)
     if @tag.save
@@ -16,7 +11,7 @@ class TagsController < ApplicationController
 
   def new
     @tag = Tag.new
-    byebug
+    #byebug
   end
 
    def index
@@ -25,6 +20,6 @@ class TagsController < ApplicationController
   
   private
   def tag_params
-      params.require(:tag).permit(:typeOftag, :content)
+      params.require(:tag).permit(:tag)
   end
 end

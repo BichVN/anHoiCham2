@@ -26,14 +26,11 @@ class MenusController < ApplicationController
   def create
     @menu = current_user.menus.build(menu_params)
 
-    respond_to do |format|
-      if @menu.save
-        format.html { redirect_to @menu, notice: 'Menu was successfully created.' }
-        format.json { render :show, status: :created, location: @menu }
-      else
-        format.html { render :new }
-        format.json { render json: @menu.errors, status: :unprocessable_entity }
-      end
+    if @menu.save
+      flash[:success] = "comment created!"
+      redirect_to root_url
+    else
+      redirect_to root_url
     end
   end
 

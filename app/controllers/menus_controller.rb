@@ -27,7 +27,7 @@ class MenusController < ApplicationController
     @menu = current_user.menus.build(menu_params)
 
     if @menu.save
-      flash[:success] = "comment created!"
+      flash[:success] = "menus created!"
       redirect_to root_url
     else
       redirect_to root_url

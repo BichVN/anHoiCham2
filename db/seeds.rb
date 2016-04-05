@@ -15,7 +15,7 @@ User.create!(name:  "Example User",
 end
 
 #Tags
-Tag.create!(tag: "#ga",
+Tag.create!(tag: "#tag1",
             user_id: "1")
 # Menus
 users = User.order(:created_at).take(6)
@@ -28,7 +28,7 @@ users = User.order(:created_at).take(6)
 end
 
 #Comments
-Comment.create!(content: "abc1",
+Comment.create!(content: "comment1",
                 user_id: "1",
                 menu_id: "1")
 # Following relationships

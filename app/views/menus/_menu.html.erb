@@ -14,13 +14,17 @@
         <td><%= menu.typeOfMenu %></td>
         <td><%= menu.content %></td>
         <td><%= menu.user.name %></td>
+        <%if menu.comments.nil? %>
+           <%= render menu.comments %>
+           <%= render 'shared/comment_form', menu: menu %>
+        <%end%>
+          <%= render 'tags/form'%>
         <td><%= link_to 'Show', menu %></td>
         <td><%= link_to 'Edit', edit_menu_path(menu) %></td>
         <td><%= link_to 'Destroy', menu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
   </tbody>
-  <%= render menu.comments %>
-  <%= render 'shared/comment_form', menu: menu %>
+  
 </table>
 
 <br>

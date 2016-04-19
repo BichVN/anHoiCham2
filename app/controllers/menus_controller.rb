@@ -25,7 +25,6 @@ class MenusController < ApplicationController
   # POST /menus.json
   def create
     @menu = current_user.menus.build(menu_params)
-
     if @menu.save
       flash[:success] = "menus created!"
       redirect_to root_url

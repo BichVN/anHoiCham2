@@ -5,6 +5,7 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         @menus = @user.menus.paginate(page: params[:page])
         @comment = Comment.new
+        @tag = Tag.new
     end
 
     def following

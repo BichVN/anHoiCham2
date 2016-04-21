@@ -19,6 +19,8 @@ before_action :authenticate_user!
   def index
     @tags = current_user.tags.paginate(page: params[:page])
     @menu = Menu.new
+    @comment = Comment.new
+    @tag = Tag.new
   end
   
   private

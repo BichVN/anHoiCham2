@@ -1,34 +1,88 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi" ng-app="Cookstar">
 <head>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+    <meta charset="UTF-8">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <title><%= yield :title %></title>
+    <link rel="shortcut icon" href="http://cookstar.asia/images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.css">
+    <!-- Mobile specific meta -->
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="format-detection" content="telephone-no">
+    <meta name="google-site-verification" content="ljVic1zd3ToZkdWh_99Nc70r_WLDuDQS24hwxNa2NTo" />
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Raleway:300,400,700,900' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Dosis:700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=latin,vietnamese'
+          rel='stylesheet' type='text/css'>
+    <link href="http://cookstar.asia/css/plugins.css" rel="stylesheet">
+    <link href="http://cookstar.asia/css/main.css" rel="stylesheet">
+    <link href="http://cookstar.asia/css/style.css" rel="stylesheet">
+    <link href="http://cookstar.asia/css/notification.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="//codeorigin.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css"/>
+    <script src="//codeorigin.jquery.com/ui/1.10.2/jquery-ui.min.js"></script>
+    <script src="//cdn.ckeditor.com/4.5.6/full/ckeditor.js"></script>
+    <script src="http://cookstar.asia/ckfinder/ckfinder.js"></script>
+    <script src="http://cookstar.asia/js/bootstrap-notify.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.full.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.css">
+    <script src="http://cookstar.asia/js/jquery.backstretch.js"></script>
+    <script src="http://cookstar.asia/js/scripts.js"></script>
+    <!-- /Dot metrix -->
 </head>
-<body>
-  <%= render "layouts/header" %>
-  <div class=" container-fluid">
-    <div class="row">
-      <div class="col-md-2" id="sidebar-wrapper">
-        <a href="#">EditProfile</a><br>
-        <a href="#">ThucDonSang</a><br>
-        <a href="#">ThucDonTrua</a><br>
-        <a href="#">Meo</a><br>
-        <a href="#">QuanLyLichSuAnUong</a><br>
-      </div>
-      <div class="col-md-8" >
-        <%= yield %>
-      </div>
-      <div class="col-md-2" >
-        <a href="#">EditProfile</a><br>
-        <a href="#">ThucDonSang</a><br>
-        <a href="#">ThucDonTrua</a><br>
-        <a href="#">Meo</a><br>
-        <a href="#">QuanLyLichSuAnUong</a><br>
-      </div>
-    </div>
-  </div>
-  <%= render 'layouts/footer' %>
-  <%= debug(params) if Rails.env.development? %>
+<body class="">
+
+<div class="ht-page-wrapper nmh-page-wrapper">
+    <%= render "layouts/header" %>
+    <%= yield %>
+    <%= render "layouts/footer" %>
+</div>
+
+<script src="http://cookstar.asia/js/plugins.js"></script>
+<script src="http://cookstar.asia/js/custom.js"></script>
+
+<script type="text/javascript">
+    function markAsRead(id) {
+      $.ajax({
+          type: 'GET',
+          url: '/notification/' + id,
+          success: function (data) {
+
+          }
+      });
+    }
+
+    function readAllData(id){
+      $.ajax({
+        type: 'GET',
+        url: 'all_notification/' + id,
+      }).done(function(){
+        window.location.href = '/notifications/'+id;
+      });
+    }
+
+    $(document).ready(function () {
+      $(".notificationLink").click(function () {
+          $(".notificationContainer").fadeToggle(300);
+          $(".notification_count").fadeOut("slow");
+          return false;
+      });
+
+      //Document Click
+      $(document).click(function () {
+          $(".notificationContainer").hide();
+      });
+    });
+</script>
 </body>
+
 </html>

@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :menu do
-    typeOfMenu "MyString"
+    menuName "MyString"
     content "MyString"
     user nil
   end

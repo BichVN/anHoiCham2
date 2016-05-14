@@ -20,10 +20,10 @@ Tag.create!(tag: "#tag1",
 # Menus
 users = User.order(:created_at).take(6)
 11.times do
-  typeOfMenu = Faker::Lorem.sentence(2)
+  menuName = Faker::Lorem.sentence(2)
   content = Faker::Lorem.sentence(5)
   tag_id  = "1"
-  users.each {|user| user.menus.create!(typeOfMenu:typeOfMenu,content: content,tag_id: tag_id) }
+  users.each {|user| user.menus.create!(menuName:menuName,content: content,tag_id: tag_id) }
 
 end
 

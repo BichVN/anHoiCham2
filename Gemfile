@@ -15,6 +15,7 @@ gem "turbolinks", "2.3.0"
 gem "jbuilder", "2.2.3"
 gem "sdoc", "0.4.0", group: :doc
 gem "acts_as_votable"
+gem "paperclip", "~> 4.2"
 
 group :development do
   gem "mysql2", '~> 0.3.18'

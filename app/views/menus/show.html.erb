@@ -1,14 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Typeofmenu:</strong>
-  <%= @menu.typeOfMenu %>
+  <strong>menuName:</strong>
+  <%= @menu.menuName %>
 </p>
 
 <p>
   <strong>Content:</strong>
   <%= @menu.content %>
 </p>
-
+# FOR THE ATTACHMENT
+<a href= "<%= @menu.attach.url %> ">
+            <b> File attached </b></a>
+<br/>
+ <%= image_tag @menu.pic.url %>
+<br/>
 <%= link_to 'Edit', edit_menu_path(@menu) %> |
 <%= link_to 'Back', menus_path %>

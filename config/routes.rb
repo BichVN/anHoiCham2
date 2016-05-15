@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :post_recipes
+  resources :ingredients
+  resources :foods
   root "timelines#home"
   devise_for :users
   resources :menus do

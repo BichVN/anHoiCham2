@@ -15,5 +15,7 @@
 <br/>
  <%= image_tag @menu.pic.url %>
 <br/>
+
+<img> <%= image_tag @menu.imgs[0].url %> <img>
 <%= link_to 'Edit', edit_menu_path(@menu) %> |
 <%= link_to 'Back', menus_path %>

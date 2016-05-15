@@ -17,6 +17,7 @@ gem "sdoc", "0.4.0", group: :doc
 gem "acts_as_votable"
 gem "paperclip", "~> 4.2"
 gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
+gem "ransack"
 
 group :development do
   gem "mysql2", '~> 0.3.18'
@@ -30,6 +31,3 @@ group :production do
   gem "pg", "0.17.1"
   gem "rails_12factor", "0.0.2"
 end
-
-
-

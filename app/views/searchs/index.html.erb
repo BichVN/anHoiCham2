@@ -1,0 +1,27 @@
+  <div>
+    <div class="row">
+      <aside class="col-md-4">
+        <h1><%= current_user.name %></h1>
+      </aside>
+      <div class="col-md-8">
+        <h3><%= "Users(#{@users.count}), Menu(#{@menus.count})" %></h3>
+        <% if @users.any? %>
+          <ul class="users">
+            <% @users.each do |user|%>
+              <%= render "result", object: user %>
+            <% end %>
+          </ul>
+          <%= will_paginate @users%>
+        <% end %>
+
+        <% if @menus.any? %>
+          <ul class="menus">
+            <% @menus.each do |menu|%>
+              <%= render "result", object: menu %>
+            <% end %>
+          </ul>
+          <%= will_paginate @menus%>
+        <% end %>
+      </div>
+    </div>
+  </div>

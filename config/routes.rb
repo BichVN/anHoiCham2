@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root "timelines#home"
+
   devise_for :users
   resources :menus do
     resources :comments, only:[:create]
@@ -10,5 +11,7 @@ Rails.application.routes.draw do
   end
   resources :tags 
   resources :relationships,       only: [:create, :destroy]
+  resources :searchs, only: [:index] do
+    collection {post :search, to: "searchs#search"}
+  end
 end
- 

@@ -3,10 +3,16 @@ class TimelinesController < ApplicationController
   
   def home
     if user_signed_in?
-      @menu = Menu.new
       @menus = current_user.menus.paginate(page: params[:page])
-      @comment = Comment.new
+      @menu = Menu.new
+      @food = @menu.foods.build
+      @ingredient = @food.ingredients.build
       @tag = Tag.new
+      if @menu.save
+        flash[:success] = "menus created!"
+      else
+        flash[:danger] = "Something went wrong"
+      end
     end
   end
 end

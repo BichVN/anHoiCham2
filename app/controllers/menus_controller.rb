@@ -15,6 +15,8 @@ class MenusController < ApplicationController
   # GET /menus/new
   def new
     @menu = Menu.new
+    @food = @menu.foods.build
+    @ingredient = @food.ingredients.build
   end
 
   # GET /menus/1/edit
@@ -52,7 +54,7 @@ class MenusController < ApplicationController
   def destroy
     @menu.destroy
     respond_to do |format|
-      format.html { redirect_to menus_url, notice: 'Menu was successfully destroyed.' }
+      format.html { redirect_to menus_url, notice: 'Menu was <su>£™</su>ccessfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -65,6 +67,6 @@ class MenusController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_params
-      params.require(:menu).permit(:menuName, :content, :attach, :pic, {imgs: []})
+      params.require(:menu).permit(:menuName, :content, :attach, :pic, {imgs: []}, :foodName, :ingredientName, :quality )
     end
 end

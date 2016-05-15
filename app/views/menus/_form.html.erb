@@ -27,6 +27,9 @@
   <div class="field">  Picture 
     <%= f.file_field :pic %>
   </div>
+
+  <%= f.label :imgs %>
+  <%= f.file_field :imgs, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
   <div class="actions">
     <%= f.submit %>
   </div>

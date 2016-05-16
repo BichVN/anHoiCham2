@@ -1,21 +1,7 @@
-<%= f.fields_for :foods do |ff| %>
-  <% if @food.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@food.errors.count, "error") %> prohibited this food from being saved:</h2>
 
-      <ul>
-      <% @food.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= fields_for food do |form_food| %> 
   <div class="field">
-    <%= ff.label :food_name %><br>
-    <%= ff.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= ff.submit %>
+    <%= form_food.label :food_name %><br>
+    <%= form_food.text_field :name %>
   </div>
 <% end %>

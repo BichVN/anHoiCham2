@@ -1,10 +1,10 @@
 class MenusController < ApplicationController
-  before_action :set_menu, only: [:show, :edit, :update, :destroy]
+  #before_action :set_menu, only: [:show, :edit, :index, :update, :destroy]
 
   # GET /menus
   # GET /menus.json
   def index
-    @menus = Menu.all
+    @menus = current_user.menus.all
   end
 
   # GET /menus/1
@@ -15,6 +15,8 @@ class MenusController < ApplicationController
   # GET /menus/new
   def new
     @menu = Menu.new
+    @food = @menu.foods.build
+    @ingredient = @food.ingredients.build
   end
 
   # GET /menus/1/edit
@@ -52,11 +54,23 @@ class MenusController < ApplicationController
   def destroy
     @menu.destroy
     respond_to do |format|
-      format.html { redirect_to menus_url, notice: 'Menu was successfully destroyed.' }
+      format.html { redirect_to menus_url, notice: 'Menu was <su>£™</su>ccessfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
+  def upvote
+    @menu = Menu.find(params[:id])
+    @menu.upvote_by current_user
+    redirect_to root_path
+  end
+
+  def downvote
+    @menu = Menu.find(params[:id])
+    @menu.downvote_by current_user
+    redirect_to root_path
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_menu
@@ -65,6 +79,7 @@ class MenusController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_params
-      params.require(:menu).permit(:typeOfMenu, :content)
+      params.require(:menu).permit(:menuName, :content, :attach, :pic, {imgs: []}, :foodName, :ingredientName, :quality )
     end
+
 end

@@ -1,0 +1,7 @@
+
+<%= fields_for food do |form_food| %> 
+  <div class="field">
+    <%= form_food.label :food_name %><br>
+    <%= form_food.text_field :name %>
+  </div>
+<% end %>

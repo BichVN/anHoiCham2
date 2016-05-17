@@ -1,4 +1,4 @@
-<%= form_for(@menu) do |f| %>
+aanhancut1<%= form_for @menu,:html => { :multipart => true }  do |f| %>
   <% if @menu.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
@@ -10,17 +10,34 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
-    <%= f.label :typeOfMenu %><br>
-    <%= f.text_field :typeOfMenu %>
+    <%= f.label :menuName %><br>
+    <%= f.text_field :menuName %>
   </div>
   <div class="field">
     <%= f.label :content %><br>
     <%= f.text_field :content %>
   </div>
   
+  <div class="field"> attachment 
+    <%= f.file_field :attach %>
+  </div>
+
+  <div class="field">  Picture 
+    <%= f.file_field :pic %>
+  </div>
+
+
+
+  <%= f.label :imgs %>
+  <%= f.file_field :imgs, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
+
+  <div id = "foods">
+  </div>
+  <%= link_to "Add", new_menu_food_path([@menu, Food.new]), remote: true %>
+
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Create menu"%>
   </div>
 <% end %>

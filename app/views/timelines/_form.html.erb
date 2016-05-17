@@ -1,0 +1,40 @@
+<%= form_for(@menu) do |f| %>
+  <div class="field">
+    <%= f.label :menuName %><br>
+    <%= f.text_field :menuName %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_field :content %>
+  </div>
+  
+  <div class="field"> attachment 
+    <%= f.file_field :attach %>
+  </div>
+
+  <div class="field">  Picture 
+    <%= f.file_field :pic %>
+  </div>
+
+  <%= f.label :imgs %>
+  <%= f.file_field :imgs, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
+  
+  <div class="field"> 
+    <%= f.label :foodName %><br>
+    <%= f.text_field :foodName %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ingredientName %><br>
+    <%= f.text_field :ingredientName  %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :quality %><br>
+    <%= f.text_field :quality %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

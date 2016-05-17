@@ -3,10 +3,10 @@
     <nav id="navbar-primary" class="navbar navbar-fixed-top" role="navigation">
         <div class="container">
             <ul class="nav navbar-nav">
-                 <li class="active logo pull-left">
-                  <%= link_to root_path do %>
-                    <img src="http://cookstar.asia/images/custom/logo.png" alt="logo">
-                  <% end %>
+                <li class="active logo pull-left">
+                    <%= link_to root_path do %>
+                        <img src="<%= image_url('logo.png') %>" alt="logo" class="logo">
+                    <% end %>
                 </li>
                 <li class="pull-right">
                     <div class="mobile-control-toggle">
@@ -20,13 +20,15 @@
                     <!-- ./mobile-panels-control -->
                     <div class="mobile-nav">
                         <ul>
-                            <li class="current-menu-item_ menu-item-has-children_ dropdown-menu_"><a href="/">Trang chủ</a></li>
+                            <li class="current-menu-item_ menu-item-has-children_ dropdown-menu_">
+                                <%= link_to "Trang chủ", root_path %>
+                            </li>
                             <li><a href="/postrecipes" onclick="dotmetrix.track('レシピ投稿画面に遷移');">Đăng công thức</a></li>
                             <li><a href="/recipes">Công thức nấu ăn</a></li>
                             <li><a href="/articles">Tin tức</a></li>
                             <li><a href="/tips">Mẹo vặt</a></li>
                             <li><a href="/contact">Liên hệ</a></li>
-                            <li><a href="/login" data-toggle="modal_" data-target="#ht-lre_">Đăng nhập - Đăng ký</a></li>
+                            <li><a href="/login" data-toggle="modal_" data-target="#ht-lre_">Đăng nhập</a></li>
                         </ul>
                     </div>
                     <!-- / .mobile-nav -->
@@ -41,380 +43,33 @@
                             </li>
                             <li class="menu-item-has-children dropdown-menu login-f mega-menu" style="float: none !important; min-width: inherit;">
                                 <a href="/recipes">Công thức nấu ăn</a>
-
-                                  <ul  class="ul-mncat">
-                                    <p class="hide">0 </p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/trang-mieng"  title="b&aacute;nh ngọt, kem">
-
-                                                <img src="/images/catalog/ci_82016-04-15 10:06:12.jpg" alt="Tr&aacute;ng miệng">
-                                                <p>Tr&aacute;ng miệng</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 0</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/snacks"  title="">
-
-                                                <img src="/images/catalog/ci_92016-04-15 10:05:02.jpg" alt="Snacks">
-                                                <p>Snacks</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 1</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/do-uong"  title="">
-
-                                                <img src="/images/catalog/ci_102016-04-15 10:03:40.jpg" alt="Đồ uống">
-                                                <p>Đồ uống</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 2</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/khai-vi"  title="S&uacute;p, Sa-l&aacute;t">
-
-                                                <img src="/images/catalog/ci_112016-04-15 10:02:50.jpg" alt="Khai vị">
-                                                <p>Khai vị</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 3</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/an-kieng"  title="">
-
-                                                <img src="/images/catalog/ci_122016-04-15 10:02:12.jpg" alt="Ăn ki&ecirc;ng">
-                                                <p>Ăn ki&ecirc;ng</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 4</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/chay"  title="">
-
-                                                <img src="/images/catalog/ci_132016-04-15 10:01:25.jpg" alt="Chay">
-                                                <p>Chay</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 5</p>
-                                                                                                                            <li class="col-md-2 navhe clearfix">
-                                                    <a href="/recipes/category/giam-can"  title="">
-
-                                                        <img src="/images/catalog/ci_142016-04-15 10:00:32.jpg" alt="Giảm c&acirc;n">
-                                                        <p>Giảm c&acirc;n</p></a>
-                                                    <div class="clearfix"></div>
-                                                </li>
-                                                                                   <p class="hide"> 6</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/tang-can"  title="">
-
-                                                <img src="/images/catalog/ci_152016-04-15 09:59:56.jpg" alt="Tăng c&acirc;n">
-                                                <p>Tăng c&acirc;n</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 7</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/it-tinh-bot"  title="">
-
-                                                <img src="/images/catalog/ci_162016-04-15 09:58:19.jpg" alt="&Iacute;t tinh bột">
-                                                <p>&Iacute;t tinh bột</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 8</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/danh-cho-nguoi-huyet-ap-cao"  title="">
-
-                                                <img src="/images/catalog/ci_172016-04-15 09:56:33.jpg" alt="D&agrave;nh cho người huyết &aacute;p cao">
-                                                <p>D&agrave;nh cho người huyết &aacute;p cao</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 9</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/danh-cho-benh-nhan-tieu-duong"  title="">
-
-                                                <img src="/images/catalog/ci_182016-04-15 09:55:40.jpg" alt="D&agrave;nh cho bệnh nh&acirc;n tiểu đường">
-                                                <p>D&agrave;nh cho bệnh nh&acirc;n tiểu đường</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 10</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/danh-cho-nguoi-gia-nguoi-cao-tuoi"  title="">
-
-                                                <img src="/images/catalog/ci_192016-04-15 09:49:38.jpg" alt="D&agrave;nh cho người gi&agrave;, người cao tuổi">
-                                                <p>D&agrave;nh cho người gi&agrave;, người cao tuổi</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 11</p>
-                                                                            <li class="col-md-12 all-navcat"><a href="/recipes"> xem tất cả</a></li>
-                                        </ul>
-                                                                    <ul  class="ul-mncat">
-                                    <p class="hide">0 </p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/danh-cho-tre-emtre-so-sinh"  title="">
-
-                                                <img src="/images/catalog/ci_202016-04-15 09:50:41.jpg" alt="D&agrave;nh cho trẻ em/trẻ sơ sinh">
-                                                <p>D&agrave;nh cho trẻ em/trẻ sơ sinh</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 0</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/danh-cho-phu-nu-mang-thai"  title="">
-
-                                                <img src="/images/catalog/ci_212016-04-15 09:52:56.jpg" alt="D&agrave;nh cho phụ nữ mang thai">
-                                                <p>D&agrave;nh cho phụ nữ mang thai</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 1</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/danh-cho-phu-nu-sau-sinh"  title="">
-
-                                                <img src="/images/catalog/ci_222016-04-15 09:48:30.jpg" alt="D&agrave;nh cho phụ nữ sau sinh">
-                                                <p>D&agrave;nh cho phụ nữ sau sinh</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 2</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/danh-cho-nhung-nguoi-hoat-dong-the-duc-the-thao"  title="">
-
-                                                <img src="/images/catalog/ci_232016-04-15 09:47:07.jpeg" alt="D&agrave;nh cho những người hoạt động thể dục thể thao">
-                                                <p>D&agrave;nh cho những người hoạt động thể dục thể thao</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 3</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/danh-cho-nu-gioi-phu-nu"  title="">
-
-                                                <img src="/images/catalog/ci_242016-04-15 09:46:11.jpg" alt="D&agrave;nh cho nữ giới, phụ nữ">
-                                                <p>D&agrave;nh cho nữ giới, phụ nữ</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 4</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/danh-cho-nam-gioi-dan-ong"  title="">
-
-                                                <img src="/images/catalog/ci_252016-04-15 09:44:55.jpeg" alt="D&agrave;nh cho nam giới, đ&agrave;n &ocirc;ng">
-                                                <p>D&agrave;nh cho nam giới, đ&agrave;n &ocirc;ng</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 5</p>
-                                                                                                                            <li class="col-md-2 navhe clearfix">
-                                                    <a href="/recipes/category/giang-sinhnoel"  title="">
-
-                                                        <img src="/images/catalog/ci_262016-04-15 09:42:25.jpg" alt="Gi&aacute;ng sinh/Noel">
-                                                        <p>Gi&aacute;ng sinh/Noel</p></a>
-                                                    <div class="clearfix"></div>
-                                                </li>
-                                                                                   <p class="hide"> 6</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/nam-moi"  title="">
-
-                                                <img src="/images/catalog/ci_272016-04-15 09:41:35.jpg" alt="Năm mới">
-                                                <p>Năm mới</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 7</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/halloween"  title="">
-
-                                                <img src="/images/catalog/ci_282016-04-15 09:37:56.jpg" alt="Halloween">
-                                                <p>Halloween</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 8</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/valentine"  title="">
-
-                                                <img src="/images/catalog/ci_292016-04-15 09:37:08.jpg" alt="Valentine">
-                                                <p>Valentine</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 9</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/ngay-cua-me"  title="">
-
-                                                <img src="/images/catalog/ci_302016-04-15 09:37:02.jpg" alt="Ng&agrave;y của mẹ">
-                                                <p>Ng&agrave;y của mẹ</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 10</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/sinh-nhat"  title="">
-
-                                                <img src="/images/catalog/ci_312016-04-15 09:36:28.jpg" alt="Sinh nhật">
-                                                <p>Sinh nhật</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 11</p>
-                                                                            <li class="col-md-12 all-navcat"><a href="/recipes"> xem tất cả</a></li>
-                                        </ul>
-                                                                    <ul  class="ul-mncat">
-                                    <p class="hide">0 </p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/tiec-cuoi"  title="">
-
-                                                <img src="/images/catalog/ci_322016-04-15 09:36:10.jpg" alt="Tiệc cưới">
-                                                <p>Tiệc cưới</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 0</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/trung-thu"  title="">
-
-                                                <img src="/images/catalog/ci_332016-04-15 09:36:01.jpg" alt="Trung thu">
-                                                <p>Trung thu</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 1</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/thap-cam"  title="">
-
-                                                <img src="/images/catalog/ci_342016-04-15 09:35:49.jpg" alt="Thập cẩm">
-                                                <p>Thập cẩm</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 2</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/cac-mon-an-khac"  title="">
-
-                                                <img src="/images/catalog/ci_352016-04-15 09:34:47.jpg" alt="C&aacute;c m&oacute;n ăn kh&aacute;c">
-                                                <p>C&aacute;c m&oacute;n ăn kh&aacute;c</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 3</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/ham"  title="">
-
-                                                <img src="/images/catalog/ci_362016-04-15 09:34:34.jpg" alt="Hầm">
-                                                <p>Hầm</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 4</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/mon-rang"  title="">
-
-                                                <img src="/images/catalog/ci_372016-04-15 09:34:19.jpg" alt="M&oacute;n rang">
-                                                <p>M&oacute;n rang</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 5</p>
-                                                                                                                            <li class="col-md-2 navhe clearfix">
-                                                    <a href="/recipes/category/chao"  title="">
-
-                                                        <img src="/images/catalog/ci_382016-04-15 09:34:07.jpg" alt="Ch&aacute;o">
-                                                        <p>Ch&aacute;o</p></a>
-                                                    <div class="clearfix"></div>
-                                                </li>
-                                                                                   <p class="hide"> 6</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/mon-lau"  title="">
-
-                                                <img src="/images/catalog/ci_392016-04-15 09:33:54.jpg" alt="M&oacute;n lẩu">
-                                                <p>M&oacute;n lẩu</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 7</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/sup"  title="">
-
-                                                <img src="/images/catalog/ci_402016-04-15 09:32:59.jpg" alt="S&uacute;p">
-                                                <p>S&uacute;p</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 8</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/rau-tron-salad"  title="">
-
-                                                <img src="/images/catalog/ci_412016-04-15 09:32:48.jpg" alt="Rau trộn | Salad">
-                                                <p>Rau trộn | Salad</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 9</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/mon-nuong"  title="">
-
-                                                <img src="/images/catalog/ci_422016-04-15 09:32:38.jpg" alt="M&oacute;n nướng">
-                                                <p>M&oacute;n nướng</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 10</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/mon-luoc"  title="">
-
-                                                <img src="/images/catalog/ci_462016-04-15 09:32:28.jpg" alt="M&oacute;n luộc">
-                                                <p>M&oacute;n luộc</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 11</p>
-                                                                            <li class="col-md-12 all-navcat"><a href="/recipes"> xem tất cả</a></li>
-                                        </ul>
-                                                                    <ul  class="ul-mncat">
-                                    <p class="hide">0 </p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/mon-xao"  title="C&aacute;c loại nguy&ecirc;n liệu được xử l&yacute; th&ocirc;ng qua việc đảo nấu nhanh với dầu ăn, sử dụng dụng cụ ch&iacute;nh l&agrave; chảo. Kh&aacute;c với m&oacute;n r&aacute;n, m&oacute;n x&agrave;o thường ướt.">
-
-                                                <img src="/images/catalog/ci_472016-04-15 09:32:11.jpg" alt="M&oacute;n X&agrave;o">
-                                                <p>M&oacute;n X&agrave;o</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 0</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/mon-ham"  title="M&oacute;n hầm l&agrave; những m&oacute;n được chế biến, tẩm ướp v&agrave; nấu kỹ, ninh nhừ trong thời gian tương đối d&agrave;i. ">
-
-                                                <img src="/images/catalog/ci_482016-04-15 09:32:01.jpg" alt="M&oacute;n Hầm">
-                                                <p>M&oacute;n Hầm</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 1</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/mon-chienran"  title="">
-
-                                                <img src="/images/catalog/ci_492016-04-15 09:31:50.jpeg" alt="M&oacute;n chi&ecirc;n/r&aacute;n">
-                                                <p>M&oacute;n chi&ecirc;n/r&aacute;n</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 2</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/mon-nom"  title="">
-
-                                                <img src="/images/catalog/ci_502016-04-15 09:30:49.jpg" alt="M&oacute;n nộm">
-                                                <p>M&oacute;n nộm</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 3</p>
-                                                                                                                    <li class="col-md-2 navhe">
-                                            <a href="/recipes/category/an-sang"  title="">
-
-                                                <img src="/images/catalog/ci_512016-04-15 09:31:40.jpg" alt="Ăn s&aacute;ng">
-                                                <p>Ăn s&aacute;ng</p></a>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                                                                       <p class="hide"> 4</p>
-                                                                            <li class="col-md-12 all-navcat"><a href="/recipes"> xem tất cả</a></li>
-                                        </ul>
-                                
                             </li>
                             <li><a href="/tips">Mẹo vặt</a></li>
                             <li><a href="/articles">Tin tức</a></li>
-                            <li class="menu-item-has-children dropdown-menu login-f pull-right">
-                              <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  <img src="https://graph.facebook.com/v2.5/882257648552259/picture?type=normal" class="img-circle avatar" style="width: 36px; height: 36px;" id="avatar">
-                              </a>
-                              <ul class="dropdown-menu" style="display: none; opacity: 0;">
-                                <li>
-                                  <%= link_to current_user.name, current_user %>
-                                </li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Quản lý công thức</a></li>
-                                <li>
-                                  <a class="btn btn-link" href="#">Thông tin cá nhân</a>
-                                </li>
-                                <li>
-                                  <a href="#" class="btn btn-link">Thay đổi mật khẩu</a>
-                                </li>
-                                <li role="separator" class="divider"></li>
-                                <li>
-                                  <%= link_to "Thoát", destroy_user_session_path, method: :delete, class: "btn btn-link" %>
-                                </li>
-                              </ul>
-                              </li>
+                            <li class="menu-item-has-children dropdown login-f pull-right">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <img src="https://graph.facebook.com/v2.5/882257648552259/picture?type=normal"
+                                        class="img-circle avatar" style="width: 36px; height: 36px;" id="avatar">
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><%= link_to current_user.name, current_user %></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Quản lý công thức</a></li>
+                                    <li>
+                                        <a class="btn btn-link" href="#">Thông tin cá nhân</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="btn btn-link">Thay đổi mật khẩu</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <%= link_to "Thoát", destroy_user_session_path, method: :delete, class: "btn btn-link" %>
+                                    </li>
+                                </ul>
+                            </li>
                             <% else %>
                             <li class="pull-right">
-                              <%= link_to "Đăng ký", new_user_registration_path %>
+                                <%= link_to "Đăng ký", new_user_registration_path %>
                             </li>
                             <% end %>
                           </ul>
@@ -426,12 +81,13 @@
     </nav>
     <div class="search-bar-wrap">
         <div class="container">
+            <% if user_signed_in? %>
             <div class="row">
                 <div class="col-md-8">
                     <div class="search-bar">
                         <form method="GET" action="http://cookstar.asia/list" accept-charset="UTF-8" class="input-group">
                         <div class="input-group add-on">
-                            <input id="title" class="search-query form-control" placeholder="T&igrave;m kiếm c&ocirc;ng thức..." autofocus="autofocus" name="title" type="text">
+                            <input id="title" class="search-query form-control" placeholder="Tìm kiếm thực đơn..." autofocus="autofocus" name="title" type="text">
                             <div class="input-group-btn">
                                 <button class="btn" type="submit">
                                     <span class="fa fa-search"></span>
@@ -443,32 +99,35 @@
                 </div>
                 <div class="col-md-4">
                     <div class="post-recipe-button">
-                        <a href="/postrecipes" class="btn btn-block btn-post-recipe" title="Đăng công thức mới" name="btn_postrecipes"><span class="fa fa-upload"></span> Đăng công thức</a>
+                        <a href="/postrecipes" class="btn btn-block btn-post-recipe" name="btn_postrecipes">
+                            <span class="fa fa-upload"></span> Đăng thực đơn
+                        </a>
                     </div>
                 </div>
             </div>
+            <% end %>
         </div>
     </div>
 
     <script>
-        $('.notificationLink').click(function(){
-          $('.notificationContainer').toggleClass('hide');
+        $('.notificationLink').click(function() {
+            $('.notificationContainer').toggleClass('hide');
         })
 
-        $().ready(function(){
-          var nextElement = $('#header').next();
-          var ckEle = nextElement.is('style', 'script', 'section');
-          if (!ckEle) {
-              nextElement.addClass('content-position');
-          }
+        $().ready(function() {
+            var nextElement = $('#header').next();
+            var ckEle = nextElement.is('style', 'script', 'section');
+            if (!ckEle) {
+                nextElement.addClass('content-position');
+            }
         });
 
         $(window).scroll(function () {
-          if ($(this).scrollTop() > 600) {
-              $('#navbar-primary').addClass("sticky");
-          } else {
-              $('#navbar-primary').removeClass("sticky");
-          }
+            if ($(this).scrollTop() > 600) {
+                $('#navbar-primary').addClass("sticky");
+            } else {
+                $('#navbar-primary').removeClass("sticky");
+            }
         });
     </script>
 </header>

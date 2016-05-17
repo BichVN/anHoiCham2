@@ -48,18 +48,17 @@
                             <li><a href="/articles">Tin tức</a></li>
                             <li class="menu-item-has-children dropdown login-f pull-right">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <img src="https://graph.facebook.com/v2.5/882257648552259/picture?type=normal"
+                                    <img src=""
                                         class="img-circle avatar" style="width: 36px; height: 36px;" id="avatar">
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><%= link_to current_user.name, current_user %></li>
                                     <li class="divider"></li>
-                                    <li><a href="#">Quản lý công thức</a></li>
                                     <li>
-                                        <a class="btn btn-link" href="#">Thông tin cá nhân</a>
+                                    <%= link_to  "Thực đơn của bạn", menus_path %>
                                     </li>
                                     <li>
-                                        <a href="#" class="btn btn-link">Thay đổi mật khẩu</a>
+                                        <%= link_to "Thay đổi mật khẩu", root_path %>
                                     </li>
                                     <li class="divider"></li>
                                     <li>
@@ -82,29 +81,19 @@
     <div class="search-bar-wrap">
         <div class="container">
             <% if user_signed_in? %>
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="search-bar">
-                        <form method="GET" action="http://cookstar.asia/list" accept-charset="UTF-8" class="input-group">
-                        <div class="input-group add-on">
-                            <input id="title" class="search-query form-control" placeholder="Tìm kiếm thực đơn..." autofocus="autofocus" name="title" type="text">
-                            <div class="input-group-btn">
-                                <button class="btn" type="submit">
-                                    <span class="fa fa-search"></span>
-                                </button>
-                            </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <%= render "shared/search_form" %>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="post-recipe-button">
+                            <%= link_to new_menu_path, class: "btn btn-block btn-post-recipe" do %>
+                                Đăng thực đơn
+                            <span class="fa fa-upload"></span>
+                            <% end %>
                         </div>
-                        </form>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="post-recipe-button">
-                        <a href="/postrecipes" class="btn btn-block btn-post-recipe" name="btn_postrecipes">
-                            <span class="fa fa-upload"></span> Đăng thực đơn
-                        </a>
-                    </div>
-                </div>
-            </div>
             <% end %>
         </div>
     </div>

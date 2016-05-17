@@ -1,13 +1,13 @@
 # Users
 User.create!(name:  "Example User",
              email: "example@mail.com",
-             password:              "foobar1234",
-             password_confirmation: "foobar1234")
+             password:              "password",
+             password_confirmation: "password")
 
 10.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@mail.com"
-  password = "password123"
+  password = "password"
   User.create!(name: name,
               email: email,
               password:              password,

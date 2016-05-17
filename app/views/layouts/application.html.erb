@@ -1,34 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+    <meta charset="UTF-8">
+    <title><%= yield :title %></title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <%= favicon_link_tag %>
+    <!-- Mobile specific meta -->
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="format-detection" content="telephone-no">
+    <meta name="google-site-verification" content="ljVic1zd3ToZkdWh_99Nc70r_WLDuDQS24hwxNa2NTo" />
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Raleway:300,400,700,900' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Dosis:700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=latin,vietnamese'
+          rel='stylesheet' type='text/css'>
 </head>
-<body>
-  <%= render "layouts/header" %>
-  <div class=" container-fluid">
-    <div class="row">
-      <div class="col-md-2" id="sidebar-wrapper">
-        <a href="#">EditProfile</a><br>
-        <a href="#">ThucDonSang</a><br>
-        <a href="#">ThucDonTrua</a><br>
-        <a href="#">Meo</a><br>
-        <a href="#">QuanLyLichSuAnUong</a><br>
-      </div>
-      <div class="col-md-8" >
-        <%= yield %>
-      </div>
-      <div class="col-md-2" >
-        <a href="#">EditProfile</a><br>
-        <a href="#">ThucDonSang</a><br>
-        <a href="#">ThucDonTrua</a><br>
-        <a href="#">Meo</a><br>
-        <a href="#">QuanLyLichSuAnUong</a><br>
-      </div>
-    </div>
-  </div>
-  <%= render 'layouts/footer' %>
-  <%= debug(params) if Rails.env.development? %>
+<body class="">
+
+<div class="ht-page-wrapper nmh-page-wrapper">
+    <%= render "layouts/header" %>
+    <%= yield %>
+    <%= render "layouts/footer" %>
+</div>
+
+<%= javascript_include_tag 'custom.js' %>
 </body>
+
 </html>

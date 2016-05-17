@@ -1,2 +1,24 @@
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<footer id="footer" class="nmh-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <p class="copyright"><span class="hidden-xs hidden-sm">COPYRIGHT </span>© 2016 ANHOICHAM.</p>
+            </div>
+            <div class="col-sm-8">
+                <ul class="footer-nav clearfix">
+                    <% if user_signed_in? %>
+                    <li><%= link_to "Trang chủ", root_path %></li>
+                    <li><a href="/recipes">Danh sách công thức</a></li>
+                    <li><a href="/contact">Liên lạc</a></li>
+                    <% else %>
+                    <li><a href="/contact">Liên lạc</a></li>
+                    <li><%= link_to "Đăng nhập", new_user_session_path %></li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+        <hr/>
+    </div>
+    <a href="#" id="back-to-top" title="Back to top" name="btn_backtoptop"></a>
+    <a href="#" id="mb-postre" class="hidden-md" title="Đăng công thức mới"></a>
+</footer>

@@ -14,6 +14,7 @@ gem "jquery-rails", "4.0.3"
 gem "turbolinks", "2.3.0"
 gem "jbuilder", "2.2.3"
 gem "sdoc", "0.4.0", group: :doc
+gem 'font-awesome-sass', '~> 4.6.2'
 gem 'acts_as_votable', '~> 0.10.0'
 gem "paperclip", "~> 4.2"
 gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
@@ -28,6 +29,6 @@ group :development do
 end
 
 group :production do
-  gem "pg", "0.17.1"
+  gem "mysql2", '~> 0.3.18'
   gem "rails_12factor", "0.0.2"
 end

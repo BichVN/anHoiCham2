@@ -1,43 +1,52 @@
-<%= form_for @menu,:html => { :multipart => true }  do |f| %>
-  <% if @menu.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
+<%= form_for @menu, :html => { :multipart => true }  do |f| %>
+    <% if @menu.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
+            <ul>
+                <% @menu.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
 
-      <ul>
-      <% @menu.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="form-bottom b1">
+        <div class="input-group col-xs-12 col-md-12" style="margin-bottom: 20px;">
+            <%= f.label " Tên menu", class: "input-group-addon fa fa-pencil", style: "width: 200px; height: 20px ;text-transform: uppercase; background: #91CB5B; color: white;" %>
+            <%= f.text_field :menuName, class: "form-control", placeholder: "Nhập tên menu..." %>
+        </div>
+
+        <div class="input-group col-xs-12 col-md-12" style="margin-bottom: 20px;">
+            <%= f.label " Nội dung", class: "input-group-addon fa fa-leaf", style: "width: 200px; height: 20px ;text-transform: uppercase; background: #91CB5B; color: white;" %>
+            <%= f.text_area :content, class: "form-control", placeholder: "Nhập nội dung..." %> 
+        </div>
+
+        <div class="input-group col-xs-12 col-md-12" style="margin-bottom: 20px;">
+            <%= f.label " Attachment", class: "input-group-addon fa fa-file-image-o", style: "width: 200px; height: 20px ;text-transform: uppercase; background: #91CB5B; color: white;" %>
+            <%= f.file_field :attach, class: "form-control" %>
+        </div>
+
+        <div class="input-group col-xs-12 col-md-12" style="margin-bottom: 20px;">
+            <%= f.label " Picture", class: "input-group-addon fa fa-file-image-o", style: "width: 200px; height: 20px ;text-transform: uppercase; background: #91CB5B; color: white;" %>
+            <%= f.file_field :pic, class: "form-control" %>
+        </div>
+
+        <div class="input-group col-xs-12 col-md-12" style="margin-bottom: 20px;">
+            <%= f.label " Imgs", class: "input-group-addon fa fa-file-image-o", style: "width: 200px; height: 20px ;text-transform: uppercase; background: #91CB5B; color: white;" %>
+            <%= f.file_field :imgs, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png", class: "form-control" %>
+        </div>
+
+        <div id="foods">
+        </div>
+        <%= link_to new_menu_food_path([@menu, Food.new]), remote: true, class: "btn btn-next btn-success" do %>
+            Thêm tên món ăn
+            <i class="fa fa-plus-square"></i>
+        <% end %>
+
+        <div style="margin-top: 20px;">
+            <%= f.submit "Tạo menu", class: "btn btn-next btn-success" %>
+        </div>
+        <p id="preview_error" style="display:none; color:orange">Bạn còn thiếu gì đó kìa! Hãy
+            xem lại dùm tui nhaaaa...</p>
     </div>
-  <% end %>
-  <div class="field">
-    <%= f.label :menuName %><br>
-    <%= f.text_field :menuName %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_field :content %>
-  </div>
-  
-  <div class="field"> attachment 
-    <%= f.file_field :attach %>
-  </div>
-
-  <div class="field">  Picture 
-    <%= f.file_field :pic %>
-  </div>
-
-
-
-  <%= f.label :imgs %>
-  <%= f.file_field :imgs, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
-
-  <div id = "foods">
-  </div>
-  <%= link_to "Add", new_menu_food_path([@menu, Food.new]), remote: true %>
-
-
-  <div class="actions">
-    <%= f.submit "Create menu"%>
-  </div>
 <% end %>

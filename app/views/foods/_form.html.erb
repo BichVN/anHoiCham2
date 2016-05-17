@@ -1,7 +1,8 @@
-
 <%= fields_for food do |form_food| %> 
-  <div class="field">
-    <%= form_food.label :food_name %><br>
-    <%= form_food.text_field :name %>
-  </div>
+    <div class="input-group col-xs-12 col-md-12" style="margin-bottom: 20px;">
+        <%= form_food.label " Tên món ăn", class: "input-group-addon fa fa-pencil", style: "width: 200px; height: 20px ;text-transform: uppercase; background: #91CB5B; color: white;" %>
+        <%= form_food.text_field :name, class: "form-control" %>
+    </div>
 <% end %>
+
+

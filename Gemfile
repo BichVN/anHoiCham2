@@ -14,7 +14,7 @@ gem "jquery-rails", "4.0.3"
 gem "turbolinks", "2.3.0"
 gem "jbuilder", "2.2.3"
 gem "sdoc", "0.4.0", group: :doc
-gem "acts_as_votable"
+gem 'acts_as_votable', '~> 0.10.0'
 gem "paperclip", "~> 4.2"
 gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
 gem "ransack"

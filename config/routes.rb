@@ -10,6 +10,12 @@ Rails.application.routes.draw do
     resources :foods
 
   end
+  resources :menus do
+  member do
+    put "like", to: "menus#upvote"
+    put "dislike", to: "menus#downvote"
+  end
+end
   resources :users do
     resources :followings, only: :index
     resources :followers, only: :index 

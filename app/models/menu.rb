@@ -13,4 +13,10 @@ class Menu < ActiveRecord::Base
   validates_attachment_file_name :pic, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/]
   validates_attachment_file_name :attach, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/]
   mount_uploaders :imgs, ImgUploader
+  acts_as_votable
+
+  def score
+    self.get_upvotes.size - self.get_downvotes.size
+  end
+  
 end

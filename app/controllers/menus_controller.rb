@@ -1,10 +1,10 @@
 class MenusController < ApplicationController
-  before_action :set_menu, only: [:show, :edit, :update, :destroy]
+  #before_action :set_menu, only: [:show, :edit, :index, :update, :destroy]
 
   # GET /menus
   # GET /menus.json
   def index
-    @menus = Menu.all
+    @menus = current_user.menus.all
   end
 
   # GET /menus/1
@@ -59,6 +59,18 @@ class MenusController < ApplicationController
     end
   end
 
+  def upvote
+    @menu = Menu.find(params[:id])
+    @menu.upvote_by current_user
+    redirect_to root_path
+  end
+
+  def downvote
+    @menu = Menu.find(params[:id])
+    @menu.downvote_by current_user
+    redirect_to root_path
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_menu
@@ -69,4 +81,5 @@ class MenusController < ApplicationController
     def menu_params
       params.require(:menu).permit(:menuName, :content, :attach, :pic, {imgs: []}, :foodName, :ingredientName, :quality )
     end
+
 end

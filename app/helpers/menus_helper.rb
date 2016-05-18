@@ -1,14 +1,8 @@
 module MenusHelper
-  def upvote
-    @menu = Menu.find(params[:id])
-    @menu.upvote_by current_user
-    redirect_to root_path
-  end
-
-  def downvote
-    @menu = Menu.find(params[:id])
-    @menu.downvote_by current_user
-    redirect_to root_path
+  def add_food_link(name)
+    link_to_function name do |page|
+      page.insert_html :bottom, :foods, :partial => 'food', :object => food.new
+    end
   end
 end
 

@@ -36,17 +36,12 @@
             <%= f.file_field :imgs, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png", class: "form-control" %>
         </div>
 
-        <div id="foods">
-        </div>
-        <%= link_to new_menu_food_path([@menu, Food.new]), remote: true, class: "btn btn-next btn-success" do %>
-            Thêm tên món ăn
-            <i class="fa fa-plus-square"></i>
-        <% end %>
-
+      <div id="foods">
+        <%= render :partial => 'food', :collection => @menu.foods %>
+      </div>
+      <p><%= add_food_link "Add a food" %></p>
         <div style="margin-top: 20px;">
             <%= f.submit "Tạo menu", class: "btn btn-next btn-success" %>
         </div>
-        <p id="preview_error" style="display:none; color:orange">Bạn còn thiếu gì đó kìa! Hãy
-            xem lại dùm tui nhaaaa...</p>
     </div>
 <% end %>

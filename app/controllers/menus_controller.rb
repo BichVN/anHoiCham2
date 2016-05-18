@@ -1,5 +1,5 @@
 class MenusController < ApplicationController
-  #before_action :set_menu, only: [:show, :edit, :index, :update, :destroy]
+  before_action :set_menu, only: [:show, :edit, :index, :update, :destroy]
 
   # GET /menus
   # GET /menus.json
@@ -15,8 +15,7 @@ class MenusController < ApplicationController
   # GET /menus/new
   def new
     @menu = Menu.new
-    @food = @menu.foods.build
-    @ingredient = @food.ingredients.build
+    3.times { @menu.foods.build }
   end
 
   # GET /menus/1/edit
@@ -31,7 +30,7 @@ class MenusController < ApplicationController
       flash[:success] = "menus created!"
       redirect_to root_url
     else
-      redirect_to root_url
+      render :action => 'new'
     end
   end
 

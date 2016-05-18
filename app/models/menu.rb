@@ -19,4 +19,10 @@ class Menu < ActiveRecord::Base
     self.get_upvotes.size - self.get_downvotes.size
   end
   
+
+  def food_attributes=(food_attributes)
+    food_attributes.each do |attributes|
+      foods.build(attributes)
+  end
+end
 end

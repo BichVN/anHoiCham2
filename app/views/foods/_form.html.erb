@@ -3,4 +3,8 @@
         <%= form_food.label " Tên món ăn", class: "input-group-addon fa fa-pencil", style: "width: 200px; height: 20px ;text-transform: uppercase; background: #91CB5B; color: white;" %>
         <%= form_food.text_field :name, class: "form-control", name: "food[]" %>
     </div>
+    <div class="input-group col-xs-12 col-md-12" style="margin-bottom: 20px;">
+        <%= form_food.label " Công thức", class: "input-group-addon fa fa-pencil", style: "width: 200px; height: 20px ;text-transform: uppercase; background: #91CB5B; color: white;" %>
+        <%= form_food.text_field :post_recipe, class: "form-control", name: "post_recipe[]" %>
+    </div>
 <% end %>

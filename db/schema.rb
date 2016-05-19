@@ -26,23 +26,14 @@ ActiveRecord::Schema.define(version: 20160517031444) do
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "foods", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.integer  "menu_id",    limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name",        limit: 255
+    t.string   "post_recipe", limit: 255
+    t.integer  "menu_id",     limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   add_index "foods", ["menu_id"], name: "index_foods_on_menu_id", using: :btree
-
-  create_table "ingredients", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "quality",    limit: 255
-    t.integer  "food_id",    limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  add_index "ingredients", ["food_id"], name: "index_ingredients_on_food_id", using: :btree
 
   create_table "menus", force: :cascade do |t|
     t.string   "menuName",            limit: 255
@@ -65,15 +56,6 @@ ActiveRecord::Schema.define(version: 20160517031444) do
   add_index "menus", ["tag_id"], name: "index_menus_on_tag_id", using: :btree
   add_index "menus", ["user_id", "created_at"], name: "index_menus_on_user_id_and_created_at", using: :btree
   add_index "menus", ["user_id"], name: "index_menus_on_user_id", using: :btree
-
-  create_table "post_recipes", force: :cascade do |t|
-    t.string   "content",    limit: 255
-    t.integer  "food_id",    limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  add_index "post_recipes", ["food_id"], name: "index_post_recipes_on_food_id", using: :btree
 
   create_table "relationships", force: :cascade do |t|
     t.integer  "follower_id", limit: 4
@@ -132,9 +114,7 @@ ActiveRecord::Schema.define(version: 20160517031444) do
   add_foreign_key "comments", "menus"
   add_foreign_key "comments", "users"
   add_foreign_key "foods", "menus"
-  add_foreign_key "ingredients", "foods"
   add_foreign_key "menus", "tags"
   add_foreign_key "menus", "users"
-  add_foreign_key "post_recipes", "foods"
   add_foreign_key "tags", "users"
 end

@@ -15,7 +15,6 @@ class MenusController < ApplicationController
   # GET /menus/new
   def new
     @menu = Menu.new
-    3.times { @menu.foods.build }
   end
 
   # GET /menus/1/edit

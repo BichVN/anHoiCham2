@@ -11,21 +11,22 @@
 
   <tbody>
       <tr>
-        <td><%= menu.menuName %></td>
-        <td><%= menu.content %></td>
-        <td><%= menu.user.name %></td>
-        <td><%= link_to "upvote", like_menu_path(menu), method: :put %></td>
-        <td><%= link_to "downvote", dislike_menu_path(menu), method: :put %></td>
-        <td><%= menu.score %></td>
+        <td><%= menu.menuName %></td></br>
+        <td><%= menu.content %></td></br>
+        <td><%= menu.user.name %></td></br>
+        <%= render menu.foods %>
+        <td><%= link_to "upvote", like_menu_path(menu), method: :put %></td></br>
+        <td><%= link_to "downvote", dislike_menu_path(menu), method: :put %></td></br>
+        <td><%= menu.score %></td></br>
     
         <%if menu.comments.nil? %>
            <%= render menu.comments %>
            <%= render 'shared/comment_form', menu: menu %>
         <%end%>
           <%= render 'tags/form'%>
-        <td><%= link_to 'Show', menu %></td>
-        <td><%= link_to 'Edit', edit_menu_path(menu) %></td>
-        <td><%= link_to 'Destroy', menu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', menu %></td></br>
+        <td><%= link_to 'Edit', edit_menu_path(menu) %></td></br>
+        <td><%= link_to 'Destroy', menu, method: :delete, data: { confirm: 'Are you sure?' } %></td></br>
       </tr>
   </tbody>
   

@@ -1,56 +1,54 @@
-<div class="container" style="min-height: 500px; padding-top: 60px;">
-  <div class="col-md-6 col-xs-12 col-md-offset-3">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name),
-        html: {class: 'form-horizontal'}) do |f| %>
+<div class="col-md-6 col-xs-12 col-md-offset-3">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name),
+      html: {class: 'form-horizontal'}) do |f| %>
 
-       <div class="form-group text-center text-uppercase">
-           <legend><h2>Đăng ký</h2></legend>
-       </div>
+     <div class="form-group text-center text-uppercase">
+         <legend><h2>Đăng ký</h2></legend>
+     </div>
 
-       <div class="form-group">
-           <label for="user" class="col-md-3 control-label">Tên hiển thị</label>
-            <div class="col-md-9">
-                <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Tên hiển thị" %>
-            </div>
-       </div>
-       <div class="form-group">
-            <label for="user" class="col-md-3 control-label">Email</label>
-            <div class="col-md-9">
-                <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
-            </div>
-       </div>
-       <div class="form-group">
-            <label for="password" class="col-md-3 control-label">Mật khẩu</label>
-            <div class="col-md-9">
-                <%= f.password_field :password, class: "form-control", placeholder: "Mật khẩu" %>
-            </div>
-       </div>
-       <div class="form-group">
-            <label for="password" class="col-md-3 control-label">Xác nhận mật khẩu</label>
-            <div class="col-md-9">
-                <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Xác nhận mật khẩu" %>
-            </div>
-       </div>
-       <div class="form-group">
-           <div class="col-md-12 text-right">
-                <%= f.submit "Đăng ký", class: "btn btn-primary" %>
-           </div>
-       </div>
+     <div class="form-group">
+         <label for="user" class="col-md-3 control-label">Tên hiển thị</label>
+          <div class="col-md-9">
+              <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Tên hiển thị" %>
+          </div>
+     </div>
+     <div class="form-group">
+          <label for="user" class="col-md-3 control-label">Email</label>
+          <div class="col-md-9">
+              <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
+          </div>
+     </div>
+     <div class="form-group">
+          <label for="password" class="col-md-3 control-label">Mật khẩu</label>
+          <div class="col-md-9">
+              <%= f.password_field :password, class: "form-control", placeholder: "Mật khẩu" %>
+          </div>
+     </div>
+     <div class="form-group">
+          <label for="password" class="col-md-3 control-label">Xác nhận mật khẩu</label>
+          <div class="col-md-9">
+              <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Xác nhận mật khẩu" %>
+          </div>
+     </div>
+     <div class="form-group">
+         <div class="col-md-12 text-right">
+              <%= f.submit "Đăng ký", class: "btn btn-primary" %>
+         </div>
+     </div>
 
-        <div class="clearfix"></div>
-        <div class="login-sns-page pull-right">
-            <legend style="font-size: 12px; text-align: right"> 
-                <p>Bạn đã có tài khoản?
-                <%= link_to "đăng nhập", new_session_path(resource_name),
-                    {style: "text-decoration: underline !important;font-style: italic"} %><br />
-                </p>
-            </legend>
-            <label class="text-uppercase">Đăng nhập với mạng xã hội: </label>
-            <a href="#" class="btn btn-facebook" onclick="ga('send', 'event', 'register', 'click' ,'facebook', 1); dotmetrix.track('Facebookでメンバー登録');"><i class="fa fa-facebook-square"></i></a>
-            <a href="#" class="btn btn-google" onclick="ga('send', 'event', 'register', 'click' ,'google', 1); dotmetrix.track('Google＋でメンバー登録');"><i class="fa fa-google-plus"></i></a>
-            <a href="#" class="btn btn-twitter" onclick="ga('send', 'event', 'register', 'click' ,'twitter', 1); dotmetrix.track('Twitterでメンバー登録');"><i class="fa fa-twitter-square"></i></a>
-            <a href="#" class="btn btn-instagram" onclick="ga('send', 'event', 'register', 'click' ,'instagram', 1); dotmetrix.track('Instagramでメンバー登録');"><i class="fa fa-instagram"></i></a>
-        </div>
-    <% end %>
-  </div>
+      <div class="clearfix"></div>
+      <div class="login-sns-page pull-right">
+          <legend style="font-size: 12px; text-align: right"> 
+              <p>Bạn đã có tài khoản?
+              <%= link_to "đăng nhập", new_session_path(resource_name),
+                  {style: "text-decoration: underline !important;font-style: italic"} %><br />
+              </p>
+          </legend>
+          <label class="text-uppercase">Đăng nhập với mạng xã hội: </label>
+          <a href="#" class="btn btn-facebook" onclick="ga('send', 'event', 'register', 'click' ,'facebook', 1); dotmetrix.track('Facebookでメンバー登録');"><i class="fa fa-facebook-square"></i></a>
+          <a href="#" class="btn btn-google" onclick="ga('send', 'event', 'register', 'click' ,'google', 1); dotmetrix.track('Google＋でメンバー登録');"><i class="fa fa-google-plus"></i></a>
+          <a href="#" class="btn btn-twitter" onclick="ga('send', 'event', 'register', 'click' ,'twitter', 1); dotmetrix.track('Twitterでメンバー登録');"><i class="fa fa-twitter-square"></i></a>
+          <a href="#" class="btn btn-instagram" onclick="ga('send', 'event', 'register', 'click' ,'instagram', 1); dotmetrix.track('Instagramでメンバー登録');"><i class="fa fa-instagram"></i></a>
+      </div>
+  <% end %>
 </div>

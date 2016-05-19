@@ -8,6 +8,9 @@ class Menu < ActiveRecord::Base
     :allow_destroy => true,
     :reject_if     => :all_blank
 
+  validates :menuName, presence: true
+  validates :content, presence: true
+
   has_attached_file :pic
   has_attached_file :attach
   validates_attachment_file_name :pic, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/]
@@ -18,11 +21,10 @@ class Menu < ActiveRecord::Base
   def score
     self.get_upvotes.size - self.get_downvotes.size
   end
-  
 
   def food_attributes=(food_attributes)
     food_attributes.each do |attributes|
       foods.build(attributes)
+    end
   end
-end
 end

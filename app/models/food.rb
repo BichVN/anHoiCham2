@@ -3,6 +3,7 @@ class Food < ActiveRecord::Base
 	has_many :post_recipe
 	
 	has_many :ingredients
+	validates :name, presence: true
 	accepts_nested_attributes_for :ingredients,
     :allow_destroy => true,
     :reject_if     => :all_blank

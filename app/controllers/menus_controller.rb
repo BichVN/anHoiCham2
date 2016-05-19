@@ -28,6 +28,13 @@ class MenusController < ApplicationController
     @menu = current_user.menus.build(menu_params)
     if @menu.save
       flash[:success] = "menus created!"
+
+      if params[:food]
+        for food in params[:food] do
+          Food.create(name: food, menu_id: @menu.id)
+        end
+      end
+
       redirect_to root_url
     else
       render :action => 'new'
@@ -70,6 +77,12 @@ class MenusController < ApplicationController
     redirect_to root_path
   end
   
+  def add_food
+    # @menu = Menu.find(params[:id])
+    respond_to do |format|
+      format.js #add_food.js.erb
+    end
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_menu
@@ -80,5 +93,4 @@ class MenusController < ApplicationController
     def menu_params
       params.require(:menu).permit(:menuName, :content, :attach, :pic, {imgs: []}, :foodName, :ingredientName, :quality )
     end
-
 end

@@ -43,9 +43,12 @@ div {
 }
 
 .field_with_errors {
-  padding: 2px;
-  background-color: red;
   display: table;
+  width: 100%;
+}
+.field_with_errors input,
+.field_with_errors textarea {
+  border-color: red;
 }
 
 #error_explanation {

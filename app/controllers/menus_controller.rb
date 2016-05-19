@@ -72,8 +72,7 @@ class MenusController < ApplicationController
   end
   
   def add_food
-    @menu = Menu.find(params[:id])
-
+    # @menu = Menu.find(params[:id])
     respond_to do |format|
       format.js #add_food.js.erb
     end

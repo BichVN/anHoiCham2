@@ -4,12 +4,14 @@ Rails.application.routes.draw do
   root "timelines#home"
 
   devise_for :users
+  
+  put "/menus/add_food", to: "menus#add_food"
 
   resources :menus do
     resources :comments, only:[:create]
     resources :foods
-
   end
+
   resources :menus do
   member do
     put "like", to: "menus#upvote"

@@ -1,8 +1,0 @@
-<div class="food">
-<%= fields_for "menu[food_attributes][]", food do |food_form| %>
-  <p>
-    food: <%= food_form.text_field :name %>
-    <%= link_to_function "remove", "this.up('.food').remove()" %>
-  </p>
-<% end %>
-</div>

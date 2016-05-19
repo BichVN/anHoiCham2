@@ -49,6 +49,13 @@ class MenusController < ApplicationController
     end
   end
 
+  def add_food
+    @menu = Menu.find(params[:id])
+    respond_to do |format|
+    format.js #add_food.js.erb
+  end
+  end
+
   # DELETE /menus/1
   # DELETE /menus/1.json
   def destroy

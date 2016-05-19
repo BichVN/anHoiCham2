@@ -71,6 +71,13 @@ class MenusController < ApplicationController
     redirect_to root_path
   end
   
+  def add_food
+    @menu = Menu.find(params[:id])
+
+    respond_to do |format|
+      format.js #add_food.js.erb
+    end
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_menu

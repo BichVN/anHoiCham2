@@ -28,4 +28,16 @@ class Menu < ActiveRecord::Base
       foods.build(attributes)
     end
   end
+
+  def get_list
+    output = []
+    str_decoded = URI.decode(self.imgs[0].url)
+    str_url = str_decoded.match(/(.*\d)\//)[0]
+    str_param = str_decoded.match(/\".*\"/)[0]
+    str_param = str_param.tr(' ','').tr('"','').tr(']','').tr('[','').split(',')
+    str_param.each do |ex|
+      output << str_url + ex
+    end
+    return output
+  end
 end

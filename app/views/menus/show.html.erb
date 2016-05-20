@@ -15,7 +15,11 @@
 <br/>
  <%= image_tag @menu.pic.url %>
 <br/>
-
-<img> <%= image_tag @menu.imgs[0].url %> <img>
+list picture
+<br/>
+<% @menu.get_list.each do |img_link| %>
+  <%= image_tag img_link %>
+<% end %>
+<br/>
 <%= link_to 'Edit', edit_menu_path(@menu) %> |
 <%= link_to 'Back', menus_path %>

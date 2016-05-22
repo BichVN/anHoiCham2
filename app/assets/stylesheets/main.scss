@@ -14235,3 +14235,54 @@ div.nmh-main-navbar {
 .form-bottom input[type="file"] {
   margin: 5px;
 }
+.post .user-block {
+    margin-bottom: 15px;
+}
+.user-block img {
+    width: 40px;
+    height: 40px;
+    float: left;
+}
+.img-bordered-sm {
+    border: 2px solid #d2d6de;
+    padding: 2px;
+}
+.img-circle {
+    border-radius: 50%;
+}
+.user-block .description {
+    color: #999;
+    font-size: 13px;
+}
+.user-block .username, .user-block .description, .user-block .comment {
+    display: block;
+    margin-left: 50px;
+}
+.margin-bottom {
+    margin-bottom: 20px;
+}
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.text-sm {
+    font-size: 12px;
+}
+.link-black {
+    color: #666;
+}
+.list-inline {
+    margin-bottom: 10px;
+}
+.post {
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #ddd;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.btn-box-tool {
+    margin: -5px 0 0 10px;
+}

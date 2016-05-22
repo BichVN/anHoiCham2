@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
-  resources :post_recipes
-  resources :ingredients
   root "timelines#home"
 
   devise_for :users
   
-  put "/menus/add_food", to: "menus#add_food"
 
   resources :menus do
     resources :comments, only:[:create]

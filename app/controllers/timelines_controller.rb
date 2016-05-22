@@ -5,7 +5,6 @@ class TimelinesController < ApplicationController
     if user_signed_in?
       @menus = current_user.menus.paginate(page: params[:page])
       @menu = Menu.new
-      @food = @menu.foods.build
       @tag = Tag.new
       if @menu.save
         flash[:success] = "menus created!"

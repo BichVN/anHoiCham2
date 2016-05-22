@@ -16,7 +16,6 @@ gem "jbuilder", "2.2.3"
 gem "sdoc", "0.4.0", group: :doc
 gem 'font-awesome-sass', '~> 4.6.2'
 gem 'acts_as_votable', '~> 0.10.0'
-gem "paperclip", "~> 4.2"
 gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
 gem "ransack"
 

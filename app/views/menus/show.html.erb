@@ -9,14 +9,6 @@
   <strong>Content:</strong>
   <%= @menu.content %>
 </p>
-# FOR THE ATTACHMENT
-<a href= "<%= @menu.attach.url %> ">
-            <b> File attached </b></a>
-<br/>
- <%= image_tag @menu.pic.url %>
-<br/>
-list picture
-<br/>
 <% @menu.get_list.each do |img_link| %>
   <%= image_tag img_link %>
 <% end %>

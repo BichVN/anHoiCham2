@@ -11,16 +11,6 @@
         </div>
 
         <div class="input-group col-xs-12 col-md-12" style="margin-bottom: 20px;">
-            <%= f.label " Attachment", class: "input-group-addon fa fa-file-image-o", style: "width: 200px; height: 20px ;text-transform: uppercase; background: #91CB5B; color: white;" %>
-            <%= f.file_field :attach %>
-        </div>
-
-        <div class="input-group col-xs-12 col-md-12" style="margin-bottom: 20px;">
-            <%= f.label " Picture", class: "input-group-addon fa fa-file-image-o", style: "width: 200px; height: 20px ;text-transform: uppercase; background: #91CB5B; color: white;" %>
-            <%= f.file_field :pic %>
-        </div>
-
-        <div class="input-group col-xs-12 col-md-12" style="margin-bottom: 20px;">
             <%= f.label " Imgs", class: "input-group-addon fa fa-file-image-o", style: "width: 200px; height: 20px ;text-transform: uppercase; background: #91CB5B; color: white;" %>
             <%= f.file_field :imgs, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
         </div>

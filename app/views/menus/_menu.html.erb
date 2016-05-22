@@ -16,6 +16,9 @@
   </div>
   <div class="row margin-bottom">
     <%= menu.content %>
+    <%= menu.get_list.each do |img_link| %>
+        <%= image_tag img_link %>
+        <% end %>
     <%= render menu.foods %>
   </div>
   <ul class="list-inline">
@@ -37,11 +40,9 @@
       </a>
     </li>
   </ul>
-
   <% if menu.comments.nil? %>
     <%= render menu.comments %>
     <%= render 'shared/comment_form', menu: menu %>
   <%end%>
-
   <input class="form-control input-sm" type="text" placeholder="Viết bình luận">
 </div>

@@ -15,14 +15,18 @@
     <span class="description"><%= link_to menu.menuName, menu %></span>
   </div>
   <div class="row margin-bottom">
-    <%= menu.content %>
-    <%= menu.get_list.each do |img_link| %>
-        <%= image_tag img_link %>
-        <% end %>
+    <%= menu.content %><br/>
+    <% menu.get_list.each do |img_link| %>
+      <div class="col-sm-6">
+        <%= image_tag img_link, class: "img-responsive" %>
+      </div>
+    <% end %>
     <%= render menu.foods %>
   </div>
   <ul class="list-inline">
-    <li><a href="#" class="link-black text-sm"><i class="fa fa-question-circle-o margin-r-5"></i> Hỏi công thức</a></li>
+    <li>
+      <a href="#" class="link-black text-sm"><i class="fa fa-question-circle-o margin-r-5"></i> Hỏi công thức</a>
+    </li>
     <li>
       <%= link_to like_menu_path(menu), method: :put do%>
         <i class="fa fa-thumbs-o-up margin-r-5"></i> Vote</a>

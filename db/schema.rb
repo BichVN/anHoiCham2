@@ -36,21 +36,13 @@ ActiveRecord::Schema.define(version: 20160517031444) do
   add_index "foods", ["menu_id"], name: "index_foods_on_menu_id", using: :btree
 
   create_table "menus", force: :cascade do |t|
-    t.string   "menuName",            limit: 255
-    t.string   "content",             limit: 255
-    t.integer  "user_id",             limit: 4
-    t.integer  "tag_id",              limit: 4
-    t.datetime "created_at",                                           null: false
-    t.datetime "updated_at",                                           null: false
-    t.string   "attach_file_name",    limit: 255
-    t.string   "attach_content_type", limit: 255
-    t.integer  "attach_file_size",    limit: 4
-    t.datetime "attach_updated_at"
-    t.string   "pic_file_name",       limit: 255
-    t.string   "pic_content_type",    limit: 255
-    t.integer  "pic_file_size",       limit: 4
-    t.datetime "pic_updated_at"
-    t.string   "imgs",                limit: 255, default: "--- []\n"
+    t.string   "menuName",   limit: 255
+    t.string   "content",    limit: 255
+    t.integer  "user_id",    limit: 4
+    t.integer  "tag_id",     limit: 4
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+    t.string   "imgs",       limit: 255, default: "--- []\n"
   end
 
   add_index "menus", ["tag_id"], name: "index_menus_on_tag_id", using: :btree

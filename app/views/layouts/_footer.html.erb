@@ -8,10 +8,10 @@
                 <ul class="footer-nav clearfix">
                     <% if user_signed_in? %>
                     <li><%= link_to "Trang chủ", root_path %></li>
-                    <li><a href="/recipes">Danh sách công thức</a></li>
-                    <li><a href="/contact">Liên lạc</a></li>
+                    <li><a href="#">Danh sách công thức</a></li>
+                    <li><a href="#">Liên lạc</a></li>
                     <% else %>
-                    <li><a href="/contact">Liên lạc</a></li>
+                    <li><a href="#">Liên lạc</a></li>
                     <li><%= link_to "Đăng nhập", new_user_session_path %></li>
                     <% end %>
                 </ul>

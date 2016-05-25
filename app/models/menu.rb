@@ -29,10 +29,12 @@ class Menu < ActiveRecord::Base
     output = []
     str_decoded = URI.decode(self.imgs[0].url)
     str_url = str_decoded.match(/(.*\d)\//)[0]
-    str_param = str_decoded.match(/\".*\"/)[0]
-    str_param = str_param.tr(' ','').tr('"','').tr(']','').tr('[','').split(',')
-    str_param.each do |ex|
-      output << str_url + ex
+    unless str_decoded.match(/\".*\"/).nil?
+      str_param = str_decoded.match(/\".*\"/)[0]
+      str_param = str_param.tr(' ','').tr('"','').tr(']','').tr('[','').split(',')
+      str_param.each do |ex|
+        output << str_url + ex
+      end
     end
     return output
   end

@@ -6495,7 +6495,7 @@ img {
 
 .img-responsive {
   margin-top: 10px;
-  margin-bottom: -10px;
+  margin-bottom: 30px;
 }
 
 hr {
@@ -6813,8 +6813,8 @@ dd {
 /*** 2.1.4 LAYOUT > PAGE > Bootstraps
 ---------------------------------------*/
 .row {
-  margin-left: -15px;
-  margin-right: -15px; }
+  margin-left: 15px;
+  margin-right: 15px; }
 .row:before, .row:after {
   content: " ";
   display: table; }
@@ -13794,8 +13794,8 @@ div.nmh-main-navbar {
     margin-bottom: 20px;
 }
 .row {
-    margin-right: -15px;
-    margin-left: -15px;
+    margin-right: 15px;
+    margin-left: 15px;
 }
 .text-sm {
     font-size: 12px;

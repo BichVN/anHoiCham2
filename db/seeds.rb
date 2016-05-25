@@ -14,23 +14,9 @@ User.create!(name:  "Example User",
               password_confirmation: password)
 end
 
-#Tags
-Tag.create!(tag: "#tag1",
-            user_id: "1")
+#Tags 
 # Menus
-users = User.order(:created_at).take(6)
-11.times do
-  menuName = Faker::Lorem.sentence(2)
-  content = Faker::Lorem.sentence(5)
-  tag_id  = "1"
-  users.each {|user| user.menus.create!(menuName:menuName,content: content,tag_id: tag_id) }
-
-end
-
 #Comments
-Comment.create!(content: "comment1",
-                user_id: "1",
-                menu_id: "1")
 # Following relationships
 users = User.all
 user  = users.first

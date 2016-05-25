@@ -10,12 +10,10 @@
       </aside>
       <div class="col-md-8">
         <%= render 'users/follow_form' %>
-        <% if current_user.menus.any? %>
         <ol class="menus">
           <%= render @menus %>
         </ol>
         <%= will_paginate @menus%>
-      <% end %>
       </div>
     </div>
   </div>

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   
 
   resources :menus do
-    resources :comments, only:[:create]
+    resources :comments, only:[:create, :destroy, :edit]
     resources :foods
   end
 

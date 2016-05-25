@@ -2,16 +2,15 @@
 <% if @comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
-
       <ul>
       <% @comment.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
-  <% end %>
+<% end %>
   <div class="field">
-    <%= f.text_area :content, placeholder: "Write a comment..." %>
+    <%= f.text_area :content, class: "form-control", placeholder: "Viết bình luận ..."%> 
     <%= f.hidden_field :user_id, :value => current_user.id %>
   </div>
  <%= f.submit "Comment", class: "btn btn-sm" %>

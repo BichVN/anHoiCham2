@@ -1,0 +1,10 @@
+Searching 859 files for "đổi mật khẩu" (regex)
+
+/Users/bichvungoc/Documents/HocTap/2S/rails/anHoiCham2/app/views/layouts/_header.html.erb:
+   51                                      
+   52                                      <li>
+   53:                                         <%= link_to "Thay đổi mật khẩu", edit_user_password_path %>
+   54                                      </li>
+   55                                      <li class="divider"></li>
+
+1 match in 1 file

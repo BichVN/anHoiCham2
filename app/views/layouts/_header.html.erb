@@ -48,11 +48,6 @@
                                 <ul class="dropdown-menu">
                                     <li><%= link_to current_user.name, current_user %></li>
                                     <li class="divider"></li>
-                                    
-                                    <li>
-                                        <%= link_to "Thay đổi mật khẩu", root_path %>
-                                    </li>
-                                    <li class="divider"></li>
                                     <li>
                                         <%= link_to "Đăng xuất", destroy_user_session_path, method: :delete, class: "btn btn-link" %>
                                     </li>

@@ -3,6 +3,7 @@
     <img class="img-circle img-bordered-sm" src="https://almsaeedstudio.com/themes/AdminLTE/dist/img/user6-128x128.jpg">
     <span class="username">
       <a href="#"><%= menu.user.name %></a>
+      <a href="#"><%= menu.user.id %></a>
       <% if current_user.id == menu.user.id %>
         <%= link_to menu, method: :delete, data: { confirm: 'Bạn chắc chắn?' }, class: "pull-right btn-box-tool" do %>
           <i class="fa fa-times"></i>
@@ -44,9 +45,8 @@
       </a>
     </li>
   </ul>
-  <% if menu.comments.nil? %>
+  <% if menu.comments.any?%>
     <%= render menu.comments %>
-    <%= render 'shared/comment_form', menu: menu %>
   <%end%>
-  <input class="form-control input-sm" type="text" placeholder="Viết bình luận">
+  <%= render 'shared/comment_form', menu: menu %>
 </div>

@@ -1,15 +1,6 @@
 <div class="user-block">
   <img class="img-circle img-bordered-sm" src="https://almsaeedstudio.com/themes/AdminLTE/dist/img/user6-128x128.jpg">
   <span class="username">
-    <a href="#"><%= comment.user.name %></a>
-    <% if current_user.id == menu.user.id %>
-      <%= link_to menu, method: :delete, data: { confirm: 'Bạn chắc chắn?' }, class: "pull-right btn-box-tool" do %>
-        <i class="fa fa-times"></i>
-      <% end %>
-      <%= link_to edit_menu_path(menu), class: "pull-right btn-box-tool" do %>
-        <i class="fa fa-pencil"></i>
-      <% end %>
-    <% end %>
-  </span>
-  <span class=""><%= comment.content %></span>
+    <a href="#"><%= comment.user.name %></a> </span>
+  <span class="#"><%= comment.content %></span>
 </div> 

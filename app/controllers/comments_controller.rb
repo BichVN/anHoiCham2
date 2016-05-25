@@ -2,12 +2,23 @@ class CommentsController < ApplicationController
 	def create
     @menu = Menu.find params[:menu_id]
     @comment = @menu.comments.build comment_params
-    @comment.user_id = current_user.id #or whatever is you session name
     if @comment.save
       flash[:success] = "comment created!"
       redirect_to root_url
     else
+      flash[:danger] = "comment was not created!"
       redirect_to root_url
+    end
+  end
+
+  def edit
+  end
+
+  def destroy
+    @comment.destroy
+    respond_to do |format|
+      format.html { redirect_to menus_url, notice: 'Comment was successfully destroyed.' }
+      format.json { head :no_content }
     end
   end
 

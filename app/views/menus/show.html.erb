@@ -1,17 +1,17 @@
 <p id="notice"><%= notice %></p>
+ <% @menus.each do |menu| %>
+	<p>
+	  <strong>Tên thực đơn :</strong>
+	  <%= menu.menuName %>
+	</p>
 
-<p>
-  <strong>menuName:</strong>
-  <%= @menu.menuName %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @menu.content %>
-</p>
-<% @menu.get_list.each do |img_link| %>
-  <%= image_tag img_link %>
-<% end %>
-<br/>
-<%= link_to 'Edit', edit_menu_path(@menu) %> |
+	<p>
+	  <%= menu.content %>
+	</p>
+	<% menu.get_list.each do |img_link| %>
+	  <%= image_tag img_link %>
+	<% end %>
+	<br/>
+<%= link_to 'Edit', edit_menu_path(menu) %> |
 <%= link_to 'Back', menus_path %>
+<% end %>

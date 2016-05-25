@@ -1,15 +1,16 @@
 class MenusController < ApplicationController
-  before_action :set_menu, only: [:show, :edit, :index, :update, :destroy]
+  #before_action :set_menu, only: [:show, :edit, :index, :update, :destroy]
 
   # GET /menus
   # GET /menus.json
   def index
-    @menus = current_user.menus.all
+    @menus = Menu.all
   end
 
   # GET /menus/1
   # GET /menus/1.json
   def show
+    @menus = current_user.menus.all
   end
 
   # GET /menus/new
@@ -29,8 +30,8 @@ class MenusController < ApplicationController
       flash[:success] = "menus created!"
 
       if params[:food]
-        for food in params[:food] do
-          Food.create(name: food, menu_id: @menu.id)
+        params[:food].each_with_index do |food,index|
+          Food.create(name: food, post_recipe: params[:post_recipe][index], menu_id: @menu.id)
         end
       end
 

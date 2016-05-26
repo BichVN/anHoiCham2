@@ -1,29 +1,21 @@
 class MenusController < ApplicationController
   #before_action :set_menu, only: [:show, :edit, :index, :update, :destroy]
 
-  # GET /menus
-  # GET /menus.json
   def index
     @menus = current_user.menus.all
   end
 
-  # GET /menus/1
-  # GET /menus/1.json
   def show
     @menus = current_user.menus.all
   end
 
-  # GET /menus/new
   def new
     @menu = Menu.new
   end
 
-  # GET /menus/1/edit
   def edit
   end
 
-  # POST /menus
-  # POST /menus.json
   def create
     @menu = current_user.menus.build(menu_params)
     if @menu.save
@@ -41,8 +33,6 @@ class MenusController < ApplicationController
     end
   end
 
-  # PATCH/PUT /menus/1
-  # PATCH/PUT /menus/1.json
   def update
     respond_to do |format|
       if @menu.update(menu_params)
@@ -55,8 +45,6 @@ class MenusController < ApplicationController
     end
   end
 
-  # DELETE /menus/1
-  # DELETE /menus/1.json
   def destroy
     @menu.destroy
     respond_to do |format|
@@ -76,6 +64,14 @@ class MenusController < ApplicationController
     @menu.downvote_by current_user
     redirect_to root_path
   end
+
+  def ask
+    @menu = Menu.find(params[:id])
+    @menu.update(status: "1", ask_user_id: current_user.id)
+    respond_to do |format|
+      format.js #ask.js.erb
+    end
+  end
   
   def add_food
     # @menu = Menu.find(params[:id])
@@ -91,6 +87,6 @@ class MenusController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_params
-      params.require(:menu).permit(:menuName, :content, {imgs: []}, :foodName, :ingredientName, :quality )
+      params.require(:menu).permit(:menuName, :content, {imgs: []}, :foodName, :ingredientName, :quality)
     end
 end

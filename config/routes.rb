@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   member do
     put "like", to: "menus#upvote"
     put "dislike", to: "menus#downvote"
+    put "ask", to: "menus#ask"
   end
 end
   resources :users do
@@ -20,7 +21,7 @@ end
     resources :followers, only: :index 
   end
   resources :tags 
-  resources :relationships,       only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
   resources :searchs, only: [:index] do
     collection {post :search, to: "searchs#search"}
   end

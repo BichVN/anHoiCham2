@@ -6552,8 +6552,7 @@ h6 {
 ---------------------------------------*/
 a {
   text-decoration: none !important;
-  transition: 0.3s;
-  color: #44494b; }
+  transition: 0.3s;}
 a:hover {
   color: #EB9532; }
 a:focus {
@@ -13773,7 +13772,6 @@ div.nmh-main-navbar {
 .user-block img {
     width: 40px;
     height: 40px;
-    float: left;
 }
 .img-bordered-sm {
     border: 2px solid #d2d6de;
@@ -13786,9 +13784,13 @@ div.nmh-main-navbar {
     color: #999;
     font-size: 13px;
 }
+.margin-bottom {
+  margin-top: 25px;
+}
 .user-block .username, .user-block .description, .user-block .comment {
     display: block;
     margin-left: 50px;
+    margin-top: -38px;
 }
 .margin-bottom {
     margin-bottom: 20px;
@@ -13818,4 +13820,9 @@ div.nmh-main-navbar {
 .btn-box-tool {
     margin: -5px 0 0 10px;
 }
-
+.comment-detail .username {
+  margin-top: -58px;
+}
+.comment-content {
+  margin-left: 50px;
+}

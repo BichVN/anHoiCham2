@@ -1,6 +1,7 @@
-<div class="user-block">
+<div class="user-block comment-detail">
   <img class="img-circle img-bordered-sm" src="https://almsaeedstudio.com/themes/AdminLTE/dist/img/user6-128x128.jpg">
   <span class="username">
-    <a href="#"><%= comment.user.name %></a> </span>
-  <span class="#"><%= comment.content %></span>
+    <%= link_to comment.user.name, comment.user %>
+  </span>
+  <span class="comment-content"><%= comment.content %></span>
 </div> 

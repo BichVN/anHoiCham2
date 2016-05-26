@@ -1,19 +1,15 @@
 <div class="post">
   <div class="user-block">
     <img class="img-circle img-bordered-sm" src="https://almsaeedstudio.com/themes/AdminLTE/dist/img/user6-128x128.jpg">
+    <span class="description"><%= link_to menu.menuName, menu %></span>
     <span class="username">
-      <a href="#"><%= menu.user.name %></a>
-      <a href="#"><%= menu.user.id %></a>
+      <%= link_to menu.user.name, menu.user %>
       <% if current_user.id == menu.user.id %>
         <%= link_to menu, method: :delete, data: { confirm: 'Bạn chắc chắn?' }, class: "pull-right btn-box-tool" do %>
           <i class="fa fa-times"></i>
         <% end %>
-        <%= link_to edit_menu_path(menu), class: "pull-right btn-box-tool" do %>
-          <i class="fa fa-pencil"></i>
-        <% end %>
       <% end %>
     </span>
-    <span class="description"><%= link_to menu.menuName, menu %></span>
   </div>
   <div class="row margin-bottom">
     <%= menu.content %><br/>
@@ -25,12 +21,22 @@
     <%= render menu.foods %>
   </div>
   <ul class="list-inline">
-    <li>
-      <a href="#" class="link-black text-sm"><i class="fa fa-question-circle-o margin-r-5"></i> Hỏi công thức</a>
+    <% if menu.user.id != current_user.id %>
+    <li id="ask-menu-<%= menu.id %>">
+      <% case menu.status
+         when 0 %>
+          <%= link_to ask_menu_path(menu), remote: true, method: :put do %>
+            <i class="fa fa-question-circle-o margin-r-5"></i> Hỏi công thức
+          <% end %>
+      <% when 1 %>
+          <i class='fa fa-hourglass-half margin-r-5'></i> Sắp có công thức
+      <% when 2 %>
+        <i class='fa fa-share margin-r-5'></i> Xem công thức
+      <% end %>
     </li>
     <li>
-      <%= link_to like_menu_path(menu), method: :put do%>
-        <i class="fa fa-thumbs-o-up margin-r-5"></i> Vote</a>
+      <%= link_to like_menu_path(menu), method: :put do %>
+        <i class="fa fa-thumbs-o-up margin-r-5"></i> Vote
       <% end %>
     </li>
     <li>
@@ -39,8 +45,15 @@
       <% end %>
     </li>
     <li><%= menu.score %></li>
+    <% else %>
+    <li>
+      <%= link_to edit_menu_path(menu), class: "pull-right btn-box-tool" do %>
+        <i class="fa fa-pencil"></i> Sửa menu
+      <% end %>
+    </li>
+    <% end %>
     <li class="pull-right">
-      <a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i>
+      <a class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i>
         Bình luận(<%= menu.comments.count %>)
       </a>
     </li>

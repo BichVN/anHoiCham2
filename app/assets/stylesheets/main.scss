@@ -4909,11 +4909,6 @@ a.thumbnail:focus,
 a.thumbnail.active {
   border-color: #337ab7; }
 
-.alert {
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
-  border-radius: 4px; }
 .alert h4 {
   margin-top: 0;
   color: inherit; }
@@ -4961,15 +4956,6 @@ a.thumbnail.active {
   border-top-color: #f7e1b5; }
 .alert-warning .alert-link {
   color: #66512c; }
-
-.alert-danger {
-  background-color: #f2dede;
-  border-color: #ebccd1;
-  color: #a94442; }
-.alert-danger hr {
-  border-top-color: #e4b9c0; }
-.alert-danger .alert-link {
-  color: #843534; }
 
 @-webkit-keyframes progress-bar-stripes {
   from {
@@ -13825,4 +13811,8 @@ div.nmh-main-navbar {
 }
 .comment-content {
   margin-left: 50px;
+}
+.alert-signin {
+  margin-left: 140px;
+  width: 74%; 
 }

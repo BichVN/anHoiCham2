@@ -5,7 +5,12 @@
      <div class="form-group text-center text-uppercase">
          <legend><h2>Đăng ký</h2></legend>
      </div>
-
+     
+     <% if resource.errors.any? %>
+     <div class="alert alert-danger alert-signin">
+       <%= devise_error_messages! %>
+     </div>
+     <% end %>
      <div class="form-group">
          <label for="user" class="col-md-3 control-label">Tên hiển thị</label>
           <div class="col-md-9">

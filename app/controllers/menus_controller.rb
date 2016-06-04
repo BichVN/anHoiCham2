@@ -6,7 +6,7 @@ class MenusController < ApplicationController
   end
 
   def show
-    @menus = current_user.menus.all
+    @menu = Menu.find(params[:id])
   end
 
   def new

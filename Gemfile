@@ -18,6 +18,11 @@ gem 'font-awesome-sass', '~> 4.6.2'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
 gem "ransack"
+gem 'omniauth'
+gem 'omniauth-facebook', '1.4.0'
+gem 'oauth2'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-twitter' 
 
 group :development do
   gem "mysql2", '~> 0.3.18'

@@ -4,6 +4,8 @@ class CreateFoods < ActiveRecord::Migration
       t.string :name
       t.text :post_recipe
       t.references :menu, index: true, foreign_key: true
+      t.integer :status, default: 0
+      t.integer :ask_user_id
       
       t.timestamps null: false
     end

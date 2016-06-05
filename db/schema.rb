@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160517031444) do
+ActiveRecord::Schema.define(version: 20160605043428) do
+
+  create_table "activities", force: :cascade do |t|
+    t.integer  "type",        limit: 4
+    t.integer  "food_id",     limit: 4
+    t.string   "menu_id",     limit: 255
+    t.integer  "user_id",     limit: 4
+    t.integer  "ask_user_id", limit: 4
+    t.integer  "status",      limit: 4,   default: 0
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text     "content",    limit: 65535
@@ -29,22 +40,22 @@ ActiveRecord::Schema.define(version: 20160517031444) do
     t.string   "name",        limit: 255
     t.text     "post_recipe", limit: 65535
     t.integer  "menu_id",     limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.integer  "status",      limit: 4,     default: 0, null: false
+    t.integer  "ask_user_id", limit: 4
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
   add_index "foods", ["menu_id"], name: "index_foods_on_menu_id", using: :btree
 
   create_table "menus", force: :cascade do |t|
-    t.string   "menuName",    limit: 255
-    t.string   "content",     limit: 255
-    t.integer  "user_id",     limit: 4
-    t.integer  "tag_id",      limit: 4
-    t.integer  "status",      limit: 4,   default: 0
-    t.integer  "ask_user_id", limit: 4
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
-    t.string   "imgs",        limit: 255, default: "--- []\n"
+    t.string   "menuName",   limit: 255
+    t.string   "content",    limit: 255
+    t.integer  "user_id",    limit: 4
+    t.integer  "tag_id",     limit: 4
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+    t.string   "imgs",       limit: 255, default: "--- []\n"
   end
 
   add_index "menus", ["tag_id"], name: "index_menus_on_tag_id", using: :btree
@@ -72,7 +83,6 @@ ActiveRecord::Schema.define(version: 20160517031444) do
   add_index "tags", ["user_id"], name: "index_tags_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",                   limit: 255, default: "", null: false
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
     t.string   "reset_password_token",   limit: 255
@@ -85,9 +95,8 @@ ActiveRecord::Schema.define(version: 20160517031444) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
+    t.string   "name",                   limit: 255
     t.string   "avatar",                 limit: 255
-    t.string   "provider",               limit: 255
-    t.string   "uid",                    limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

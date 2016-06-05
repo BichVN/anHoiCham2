@@ -2,7 +2,6 @@
     <div class="search-bar">
         <form method="GET" accept-charset="UTF-8" class="input-group">
         <div class="input-group add-on">
-          <!-- <input id="title" class="search-query form-control" placeholder="Tìm kiếm thực đơn..." autofocus="autofocus" name="title" type="text"> -->
             <%= text_field_tag :q, nil, placeholder: @search_string ||= "Nhập từ khóa ...",
              id: "title", class: "search-query form-control", autofocus: "autofocus", type: "text" %>
             <div class="input-group-btn">

@@ -40,6 +40,18 @@
                               <%= link_to "Trang chủ", root_path %>
                             </li>
                             <li><%= link_to  "Thực đơn của bạn", menus_path %></li>
+                            <li class="menu-item-has-children dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-bell"></i>
+                                </a>
+                                <div class="notificationContainer dropdown-menu">
+                                    <div class="notificationTitle">Thông báo</div>
+                                    <div class="notificationsBody">
+                                        <%= render "shared/notification" %>
+                                    </div>
+                                    <div class="notificationFooter"><a class="notify-all">Xem tất cả</a></div>
+                                </div>
+                            </li>
                             <li class="menu-item-has-children dropdown login-f pull-right">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <img src=""

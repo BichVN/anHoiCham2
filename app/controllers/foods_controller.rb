@@ -56,6 +56,16 @@ class FoodsController < ApplicationController
   def ask
     @food = Food.find(params[:id])
     @food.update(status: "1", ask_user_id: current_user.id)
+
+    @activity = Activity.new(
+      activity_type: "1",
+      food_id: @food.id,
+      menu_id: @food.menu.id,
+      user_id: @food.menu.user.id,
+      ask_user_id: current_user.id
+    )
+    @activity.save
+
     respond_to do |format|
       format.js #ask.js.erb
     end

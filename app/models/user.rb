@@ -92,6 +92,10 @@ class User < ActiveRecord::Base
       end
     end
   end
+
+  def notifications
+    return Activity.where("(user_id = ? AND activity_type = 1) OR (ask_user_id = ? AND activity_type = 2)", self.id, self.id)
+  end
   
   private
 

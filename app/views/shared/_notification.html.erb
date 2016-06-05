@@ -1,0 +1,8 @@
+<% current_user.notifications.each do |notification| %>
+	<div class="notificationItem">
+		<%= link_to edit_menu_path(notification.food.menu) do %>
+			<%= User.find(notification.ask_user_id).name %> hỏi công thức món <%= notification.food.name %> 
+			trong menu <%= notification.food.menu.menuName %> của bạn
+		<% end %>
+	</div>
+<% end %>

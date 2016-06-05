@@ -20,7 +20,7 @@
     <% end %>
     <%= render menu.foods %>
   </div>
-  <ul class="list-inline">
+  <ul class="list-inline vote-button">
     <% if menu.user.id != current_user.id %>
     <li>
       <%= link_to like_menu_path(menu), method: :put do %>

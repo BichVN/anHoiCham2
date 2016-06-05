@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   root "timelines#home"
 
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
-  
 
   resources :menus do
     resources :comments, only:[:create, :destroy, :edit]
@@ -10,12 +9,18 @@ Rails.application.routes.draw do
   end
 
   resources :menus do
-  member do
-    put "like", to: "menus#upvote"
-    put "dislike", to: "menus#downvote"
-    put "ask", to: "menus#ask"
+    member do
+      put "like", to: "menus#upvote"
+      put "dislike", to: "menus#downvote"
+    end
   end
-end
+
+  resources :foods do
+    member do
+      put "ask", to: "foods#ask"
+    end
+  end
+
   resources :users do
     resources :followings, only: :index
     resources :followers, only: :index 

@@ -64,14 +64,6 @@ class MenusController < ApplicationController
     @menu.downvote_by current_user
     redirect_to root_path
   end
-
-  def ask
-    @menu = Menu.find(params[:id])
-    @menu.update(status: "1", ask_user_id: current_user.id)
-    respond_to do |format|
-      format.js #ask.js.erb
-    end
-  end
   
   def add_food
     # @menu = Menu.find(params[:id])

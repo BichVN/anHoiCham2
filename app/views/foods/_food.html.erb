@@ -1,2 +1,19 @@
-  <span class="content"><b>Tên món ăn: </b><%= food.name %></span></br>
-  <span class="content"><b>Công thức:</b> <br><%= food.post_recipe %></span></br>
+<% index = food_counter + 1 %>
+<span class="content">
+	<b><%= index %>. Tên món ăn: </b>
+	<%= food.name %>
+</span></br>
+&nbsp;&nbsp;&nbsp;
+<span id="ask-food-<%= food.id %>">
+  <% case food.status
+     when 0 %>
+      <%= link_to ask_food_path(food), remote: true, method: :put do %>
+        <i class="fa fa-question-circle-o margin-r-5"></i> Hỏi công thức
+      <% end %>
+  <% when 1 %>
+      <a><i class='fa fa-hourglass-half margin-r-5'></i> Sắp có công thức</a>
+  <% when 2 %>
+      <i class='fa fa-share margin-r-5'></i> Xem công thức
+  <% end %>
+</span></br>
+<span class="content"><b>Công thức:</b> <br><%= food.post_recipe %></span></br>

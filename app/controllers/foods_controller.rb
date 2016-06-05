@@ -1,18 +1,13 @@
 class FoodsController < ApplicationController
   before_action :set_food, only: [:show, :edit, :update, :destroy]
 
-  # GET /foods
-  # GET /foods.json
   def index
     @foods = Food.all
   end
 
-  # GET /foods/1
-  # GET /foods/1.json
   def show
   end
 
-  # GET /foods/new
   def new
     @food = Food.new
     @menu = Menu.new
@@ -21,12 +16,9 @@ class FoodsController < ApplicationController
     end
   end
 
-  # GET /foods/1/edit
   def edit
   end
 
-  # POST /foods
-  # POST /foods.json
   def create
     @food = Food.new(food_params)
 
@@ -41,8 +33,6 @@ class FoodsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /foods/1
-  # PATCH/PUT /foods/1.json
   def update
     respond_to do |format|
       if @food.update(food_params)
@@ -55,13 +45,19 @@ class FoodsController < ApplicationController
     end
   end
 
-  # DELETE /foods/1
-  # DELETE /foods/1.json
   def destroy
     @food.destroy
     respond_to do |format|
       format.html { redirect_to foods_url, notice: 'Food was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def ask
+    @food = Food.find(params[:id])
+    @food.update(status: "1", ask_user_id: current_user.id)
+    respond_to do |format|
+      format.js #ask.js.erb
     end
   end
 

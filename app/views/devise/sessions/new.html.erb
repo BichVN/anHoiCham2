@@ -38,10 +38,9 @@
       </p>
       </legend>
       <label class="text-uppercase">Đăng nhập với mạng xã hội: </label>
-      <a href="#" class="btn btn-facebook" onclick="ga('send', 'event', 'register', 'click', 'facebook', 1); dotmetrix.track('Facebookでメンバー登録');"><i class="fa fa-facebook-square"></i></a>
-      <a href="#" class="btn btn-google" onclick="ga('send', 'event', 'register', 'click', 'google', 1); dotmetrix.track('Google＋でメンバー登録');"><i class="fa fa-google-plus"></i></a>
-      <a href="#" class="btn btn-twitter" onclick="ga('send', 'event', 'register', 'click', 'twitter', 1); dotmetrix.track('Twitterでメンバー登録');"><i class="fa fa-twitter-square"></i></a>
-      <a href="#" class="btn btn-instagram" onclick="ga('send', 'event', 'register', 'click', 'instagram', 1); dotmetrix.track('Instagramでメンバー登録');"><i class="fa fa-instagram"></i></a>
+      <%= link_to "Sign in with Facebook", user_omniauth_authorize_path( :facebook ),class: "btn btn-lg btn-primary" %>
+    <%= link_to "Sign in with Twitter", user_omniauth_authorize_path( :twitter ),class: "btn btn-lg btn-primary" %>
+    <%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2),class: "btn btn-lg btn-primary"  %>
       </div>
   <% end %>
 </div>

@@ -268,6 +268,6 @@ Devise.setup do |config|
   config.omniauth :twitter, 'DpYEEvm7vbJUnJxQbGNxNcF5B', 't0DrBztamR43peZc8xK6fwvx89RQlP9BfzgiDBNxQH8Rou4qVl' , { access_type: "offline", approval_prompt: "" }
 
   require 'omniauth-google-oauth2'
-  config.omniauth :google_oauth2, '976713474249-fh9qub9hv1t063inujb1tdrhpee2jf4f.apps.googleusercontent.com', '93dKxD8UisAQ_I3L00-yNONd', { access_type: "offline", approval_prompt: "" }
+  config.omniauth :google_oauth2, '5751347692-278qoo84sv0guenmlefn13t6kk5cjfcg.apps.googleusercontent.com', 'rwWLPflQTgM4Yf_Xkb2iWEjf', { access_type: "offline", approval_prompt: "" }
 
 end

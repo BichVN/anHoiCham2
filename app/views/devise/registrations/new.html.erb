@@ -23,6 +23,13 @@
               <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
           </div>
      </div>
+
+     <div class="form-group">
+          <label for="user" class="col-md-3 control-label">Avatar</label>
+          <div class="col-md-9">
+              <%= f.file_field :avatar, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
+          </div>
+     </div>
      <div class="form-group">
           <label for="password" class="col-md-3 control-label">Mật khẩu</label>
           <div class="col-md-9">

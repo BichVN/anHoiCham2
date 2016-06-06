@@ -1,5 +1,6 @@
 <h3>Name: <%= @user.name %></h3>
 <h3>Email: <%= @user.email %></h3>
+<img> <%= image_tag @user.avatar.url,  class: "img-circle img-bordered-sm" %> <img>
 <%= render 'follow_form'%>
 
                     

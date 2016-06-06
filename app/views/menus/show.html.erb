@@ -22,19 +22,6 @@
   </div>
   <ul class="list-inline">
     <% if @menu.user.id != current_user.id %>
-    <li id="ask-menu-<%= @menu.id %>">
-      <% case @menu.status
-         when 0 %>
-          <%= link_to ask_menu_path(@menu), remote: true, method: :put do %>
-            <i class="fa fa-question-circle-o margin-r-5"></i> Hỏi công thức
-          <% end %>
-      <% when 1 %>
-          <i class='fa fa-hourglass-half margin-r-5'></i> Sắp có công thức
-      <% when 2 %>
-        <i class='fa fa-share margin-r-5'></i> Xem công thức
-      <% end %>
-    </li>
-    <li>
       <%= link_to like_menu_path(@menu), method: :put do %>
         <i class="fa fa-thumbs-o-up margin-r-5"></i> Vote
       <% end %>
@@ -62,7 +49,4 @@
     <%= render @menu.comments %>
   <%end%>
 </div>
-
-<%= link_to 'Edit', edit_menu_path(@menu) %> |
-<%= link_to 'Back', menus_path %>
 

@@ -1,6 +1,5 @@
 class MenusController < ApplicationController
   #before_action :set_menu, only: [:show, :edit, :index, :update, :destroy]
-
   def index
     @menus = current_user.menus.all
   end
@@ -55,9 +54,10 @@ class MenusController < ApplicationController
   end
 
   def destroy
+    @menu = Menu.find params[:id]
     @menu.destroy
     respond_to do |format|
-      format.html { redirect_to menus_url, notice: 'Menu was <su>£™</su>ccessfully destroyed.' }
+      format.html { redirect_to menus_url, notice: 'Menu was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

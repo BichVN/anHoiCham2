@@ -263,7 +263,7 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   require 'omniauth-facebook'
-  config.omniauth :facebook, '492241450948366', 'e2876a9a2b9c1f9582f0bb2309a6664f', { access_type: "offline", approval_prompt: "" }
+  config.omniauth :facebook, '1774452812766124', 'dfb57141af79488265a683c708e9fccb', { access_type: "offline", approval_prompt: "" }
   require 'omniauth-twitter'
   config.omniauth :twitter, 'DpYEEvm7vbJUnJxQbGNxNcF5B', 't0DrBztamR43peZc8xK6fwvx89RQlP9BfzgiDBNxQH8Rou4qVl' , { access_type: "offline", approval_prompt: "" }
 

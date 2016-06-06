@@ -61,7 +61,6 @@
   <% if @menu.comments.any?%>
     <%= render @menu.comments %>
   <%end%>
-  <%= render 'shared/comment_form', menu: @menu %>
 </div>
 
 <%= link_to 'Edit', edit_menu_path(@menu) %> |

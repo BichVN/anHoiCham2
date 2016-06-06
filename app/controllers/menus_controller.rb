@@ -14,6 +14,7 @@ class MenusController < ApplicationController
   end
 
   def edit
+    @menu = Menu.find(params[:id])
   end
 
   def create
@@ -34,8 +35,16 @@ class MenusController < ApplicationController
   end
 
   def update
+    @menu = Menu.find params[:id]
     respond_to do |format|
       if @menu.update(menu_params)
+        if params[:foods]
+          params[:foods][:id].each_with_index do |id, index|
+            food = Food.find id.to_i
+            food.update_attributes(id: id, name: params[:foods][:name][index], post_recipe: params[:foods][:post_recipe][index], 
+              menu_id: @menu.id)
+          end
+        end
         format.html { redirect_to @menu, notice: 'Menu was successfully updated.' }
         format.json { render :show, status: :ok, location: @menu }
       else

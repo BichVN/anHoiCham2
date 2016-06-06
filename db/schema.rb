@@ -14,14 +14,14 @@
 ActiveRecord::Schema.define(version: 20160605043428) do
 
   create_table "activities", force: :cascade do |t|
-    t.integer  "type",        limit: 4
-    t.integer  "food_id",     limit: 4
-    t.string   "menu_id",     limit: 255
-    t.integer  "user_id",     limit: 4
-    t.integer  "ask_user_id", limit: 4
-    t.integer  "status",      limit: 4,   default: 0
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.integer  "activity_type", limit: 4,               null: false
+    t.integer  "food_id",       limit: 4
+    t.string   "menu_id",       limit: 255
+    t.integer  "user_id",       limit: 4
+    t.integer  "ask_user_id",   limit: 4
+    t.integer  "status",        limit: 4,   default: 0
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
   create_table "comments", force: :cascade do |t|

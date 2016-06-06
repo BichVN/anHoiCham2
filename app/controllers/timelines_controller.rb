@@ -14,4 +14,3 @@ class TimelinesController < ApplicationController
     end
   end
 end
-

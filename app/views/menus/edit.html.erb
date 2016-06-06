@@ -1,6 +1,34 @@
 <h1>Editing Menu</h1>
 
-<%= render 'form' %>
+<%= form_for @menu, :html => { :multipart => true }  do |f| %>
+  <div class="form-bottom b1">
+    <div class="input-group col-xs-12 col-md-12" style="margin-bottom: 20px;">
+      <%= f.label " Tên menu", class: "input-group-addon fa fa-pencil", style: "width: 200px; height: 20px ;text-transform: uppercase; background: #91CB5B; color: white;" %>
+      <%= f.text_field :menuName, class: "form-control", placeholder: "Nhập tên menu..." %>
+    </div>
 
-<%= link_to 'Show', @menu %> |
-<%= link_to 'Back', menus_path %>
+    <div class="input-group col-xs-12 col-md-12" style="margin-bottom: 20px;">
+        <%= f.label " Nội dung", class: "input-group-addon fa fa-leaf", style: "width: 200px; height: 20px ;text-transform: uppercase; background: #91CB5B; color: white;" %>
+        <%= f.text_area :content, class: "form-control", placeholder: "Nhập nội dung..." %> 
+    </div>
+
+    <div class="input-group col-xs-12 col-md-12" style="margin-bottom: 20px;">
+        <%= f.label " Imgs", class: "input-group-addon fa fa-file-image-o", style: "width: 200px; height: 20px ;text-transform: uppercase; background: #91CB5B; color: white;" %>
+        <%= f.file_field :imgs, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
+    </div>
+    <% @menu.foods.each_with_index do |value, index| %>
+      <%= hidden_field_tag "foods[id][]", value.id %>
+      <div class="input-group col-xs-12 col-md-12" style="margin-bottom: 20px;">
+          <%= label_tag "foods[name][]", " Tên món an", class: "input-group-addon fa fa-pencil", style: "width: 200px; height: 20px ;text-transform: uppercase; background: #91CB5B; color: white;" %>
+          <%= text_field_tag "foods[name][]", value.name,  class: "form-control", placeholder: "Nhập tên menu..." %>
+      </div>
+      <div class="input-group col-xs-12 col-md-12" style="margin-bottom: 20px;">
+          <%= label_tag "foods[post_recipe][]", " Công thức ", class: "input-group-addon fa fa-pencil", style: "width: 200px; height: 20px ;text-transform: uppercase; background: #91CB5B; color: white;" %>
+          <%= text_field_tag "foods[post_recipe][]", value.post_recipe,  class: "form-control", placeholder: "Nhập công thức..." %>
+      </div>
+    <% end %>
+     <div style="margin-top: 20px;">
+        <%= f.submit "Sửa menu", class: "btn btn-next btn-success" %>
+    </div>
+  </div>
+<% end %>

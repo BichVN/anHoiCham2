@@ -14,7 +14,6 @@
             <%= f.label " Imgs", class: "input-group-addon fa fa-file-image-o", style: "width: 200px; height: 20px ;text-transform: uppercase; background: #91CB5B; color: white;" %>
             <%= f.file_field :imgs, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
         </div>
-
         <div id="foods">
         </div>
         <%= link_to new_menu_food_path([@menu, Food.new]), remote: true, class: "btn btn-next btn-success" do %>

@@ -1,6 +1,5 @@
 class MenusController < ApplicationController
   #before_action :set_menu, only: [:show, :edit, :index, :update, :destroy]
-
   def index
     @menus = current_user.menus.all
   end
@@ -14,6 +13,7 @@ class MenusController < ApplicationController
   end
 
   def edit
+    @menu = Menu.find(params[:id])
   end
 
   def create
@@ -34,8 +34,16 @@ class MenusController < ApplicationController
   end
 
   def update
+    @menu = Menu.find params[:id]
     respond_to do |format|
       if @menu.update(menu_params)
+        if params[:foods]
+          params[:foods][:id].each_with_index do |id, index|
+            food = Food.find id.to_i
+            food.update_attributes(id: id, name: params[:foods][:name][index], post_recipe: params[:foods][:post_recipe][index], 
+              menu_id: @menu.id)
+          end
+        end
         format.html { redirect_to @menu, notice: 'Menu was successfully updated.' }
         format.json { render :show, status: :ok, location: @menu }
       else
@@ -46,9 +54,10 @@ class MenusController < ApplicationController
   end
 
   def destroy
+    @menu = Menu.find params[:id]
     @menu.destroy
     respond_to do |format|
-      format.html { redirect_to menus_url, notice: 'Menu was <su>£™</su>ccessfully destroyed.' }
+      format.html { redirect_to menus_url, notice: 'Menu was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -2,7 +2,7 @@ class TimelinesController < ApplicationController
   before_action :authenticate_user!
   def home
     if user_signed_in?
-      @menus = Menu.all.paginate(page: params[:page])
+      @menus = current_user.feed.paginate(page: params[:page])
       @menu = Menu.new
       @tag = Tag.new
       @comment = Comment.new

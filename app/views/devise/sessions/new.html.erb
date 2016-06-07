@@ -38,9 +38,15 @@
       </p>
       </legend>
       <label class="text-uppercase">Đăng nhập với mạng xã hội: </label>
-      <%= link_to "Sign in with Facebook", user_omniauth_authorize_path( :facebook ),class: "btn btn-lg btn-primary" %>
-    <%= link_to "Sign in with Twitter", user_omniauth_authorize_path( :twitter ),class: "btn btn-lg btn-primary" %>
-    <%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2),class: "btn btn-lg btn-primary"  %>
-      </div>
+      <%= link_to user_omniauth_authorize_path(:facebook), class: "btn btn-facebook" do %>
+        <i class="fa fa-facebook-square"></i>
+      <% end %>
+      <%= link_to user_omniauth_authorize_path(:google_oauth2), class: "btn btn-google" do %>
+        <i class="fa fa-google-plus"></i>
+      <% end %>
+      <%= link_to user_omniauth_authorize_path(:twitter), class: "btn btn-twitter" do %>
+        <i class="fa fa-twitter-square"></i>
+      <% end %>
+    </div>
   <% end %>
 </div>

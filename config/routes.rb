@@ -22,9 +22,11 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    resources :followings, only: :index
-    resources :followers, only: :index 
+    member do
+      get :following, :followers
+    end
   end
+  
   resources :tags 
   resources :relationships, only: [:create, :destroy]
   resources :searchs, only: [:index] do

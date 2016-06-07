@@ -2,7 +2,8 @@
 Cách reset db
 
 $ rake db:migrate:reset
+
 $ rake db:seed
+
 $ mysql -u root anHoiCham2 < menus.sql 
 
-<tt>rake doc:app</tt>.

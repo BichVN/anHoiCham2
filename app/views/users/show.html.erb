@@ -1,6 +1,13 @@
-<h3>Name: <%= @user.name %></h3>
-<h3>Email: <%= @user.email %></h3>
-<img> <%= image_tag @user.avatar.url,  class: "img-circle img-bordered-sm" %> <img>
-<%= render 'follow_form'%>
-
+<div class="row">
+  <aside class="col-md-4">
+   <img> <%= image_tag current_user.avatar.url, class: "img-circle img-bordered-sm" %> 
+  </aside>
+  <aside class="col-md-4">
+    <h1><%= current_user.name %></h1>
+    <p><%= current_user.email %></p>
+    <%= render 'shared/stats' %>
+    <%= render 'follow_form' %>
+    <%= render 'users/follow_form' %>
+  </aside>
+</div>
                     

@@ -1,23 +1,5 @@
 <% provide(:title, 'Hôm nay bạn ăn gì?') %>
-
-<% if user_signed_in? %>
-  <div>
-    <div class="row">
-      <aside class="col-md-4">
-       <img> <%= image_tag current_user.avatar.url, class: "img-circle img-bordered-sm" %> <img>
-        <h1><%= current_user.name %></h1>
-        <p><%= current_user.email %></p>
-        <%= render 'shared/stats' %>
-      </aside>
-      <div class="col-md-8">
-        <%= render 'users/follow_form' %>
-        <ol class="menus">
-          <%= render @menus %>
-        </ol>
-        <%= will_paginate @menus%>
-      </div>
-    </div>
-  </div>
-<% else %>
-  <div> Loi </div>
+<%if user_signed_in? %>
+  <%= render @menus %>
+  <%= will_paginate @menus%>
 <% end %>

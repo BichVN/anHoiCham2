@@ -1,7 +1,6 @@
 # Users
 User.create!(name:  "Example User",
              email: "example@mail.com",
-             avatar: 'sankayou_flr.jpg',
              password:              "password",
              password_confirmation: "password")
 
@@ -12,7 +11,6 @@ User.create!(name:  "Example User",
   password = "password"
   User.create!(name: name,
               email: email,
-              avatar: avatar,
               password:              password,
               password_confirmation: password)
 end

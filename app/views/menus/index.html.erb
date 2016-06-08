@@ -16,6 +16,8 @@
           </span>
         </div>
         <div class="row margin-bottom">
+          <p><%= menu.updated_at.strftime("%Y:%m:%d") %></p>
+          <p><%= menu.updated_at.strftime("%H:%M:%S") %></p>
           <%= menu.content %><br/>
           <% menu.get_list.each do |img_link| %>
             <div class="col-sm-6">

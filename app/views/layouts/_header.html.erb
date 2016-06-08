@@ -1,100 +1,103 @@
 <!-- BEGIN | Header -->
 <header id="header" class="nmh-header ht-header">
-    <nav id="navbar-primary" class="navbar navbar-fixed-top" role="navigation">
-        <div class="container">
-            <ul class="nav navbar-nav">
-                <li class="active logo pull-left">
-                    <%= link_to root_path do %>
-                        <img src="<%= image_url('logo.png') %>" alt="logo" class="logo">
-                    <% end %>
-                </li>
-                <li class="pull-right">
-                    <div class="mobile-control-toggle">
-                        <button type="button" class="mobile-nav-toggle" data-target="#menu-list">
-                            <span class="sr-only">Toggle mobile menu</span>
-                            <span class="icon-bar icon-bar-1"></span>
-                            <span class="icon-bar icon-bar-2"></span>
-                            <span class="icon-bar icon-bar-3"></span>
-                        </button>
+  <nav id="navbar-primary" class="navbar navbar-fixed-top" role="navigation">
+    <div class="container">
+      <ul class="nav navbar-nav">
+        <li class="active logo pull-left">
+          <%= link_to root_path do %>
+            <img src="<%= image_url('logo.png') %>" alt="logo" class="logo">
+          <% end %>
+        </li>
+        <li class="pull-right">
+          <div class="mobile-control-toggle">
+            <button type="button" class="mobile-nav-toggle" data-target="#menu-list">
+              <span class="sr-only">Toggle mobile menu</span>
+              <span class="icon-bar icon-bar-1"></span>
+              <span class="icon-bar icon-bar-2"></span>
+              <span class="icon-bar icon-bar-3"></span>
+            </button>
+          </div>
+          <!-- ./mobile-panels-control -->
+          <div class="mobile-nav">
+            <ul>
+              <li class="current-menu-item_ menu-item-has-children_ dropdown-menu_">
+                  <%= link_to "Trang chủ", root_path %>
+              </li>
+              <li><a href="/postrecipes" onclick="dotmetrix.track('レシピ投稿画面に遷移');">Đăng công thức</a></li>
+              <li><a href="/recipes">Công thức nấu ăn</a></li>
+              <li><a href="/contact">Liên hệ</a></li>
+              <li><a href="/login" data-toggle="modal_" data-target="#ht-lre_">Đăng nhập</a></li>
+            </ul>
+          </div>
+          <!-- / .mobile-nav -->
+      </li>
+      <li class="pull-right">
+          <div class="ht-main-navbar nmh-main-navbar">
+            <nav id="ht-main-nav">
+              <ul class="menu-bar">
+                <% if user_signed_in? %>
+                  <li>
+                    <%= link_to "Trang chủ", root_path %>
+                  </li>
+                  <li><%= link_to  "Thực đơn của bạn", menus_path %></li>
+                  <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <i class="fa fa-bell"></i>
+                    </a>
+                    <div class="notificationContainer dropdown-menu">
+                      <div class="notificationTitle">Thông báo</div>
+                      <div class="notificationsBody">
+                        <%= render "shared/notification" %>
+                      </div>
+                      <div class="notificationFooter"><a class="notify-all">Xem tất cả</a></div>
                     </div>
-                    <!-- ./mobile-panels-control -->
-                    <div class="mobile-nav">
-                        <ul>
-                            <li class="current-menu-item_ menu-item-has-children_ dropdown-menu_">
-                                <%= link_to "Trang chủ", root_path %>
-                            </li>
-                            <li><a href="/postrecipes" onclick="dotmetrix.track('レシピ投稿画面に遷移');">Đăng công thức</a></li>
-                            <li><a href="/recipes">Công thức nấu ăn</a></li>
-                            <li><a href="/contact">Liên hệ</a></li>
-                            <li><a href="/login" data-toggle="modal_" data-target="#ht-lre_">Đăng nhập</a></li>
-                        </ul>
-                    </div>
-                    <!-- / .mobile-nav -->
-                </li>
-                <li class="pull-right">
-                    <div class="ht-main-navbar nmh-main-navbar">
-                    <nav id="ht-main-nav">
-                        <ul class="menu-bar">
-                            <% if user_signed_in? %>
-                            <li>
-                              <%= link_to "Trang chủ", root_path %>
-                            </li>
-                            <li><%= link_to  "Thực đơn của bạn", menus_path %></li>
-                            <li class="menu-item-has-children dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-bell"></i>
-                                </a>
-                                <div class="notificationContainer dropdown-menu">
-                                    <div class="notificationTitle">Thông báo</div>
-                                    <div class="notificationsBody">
-                                        <%= render "shared/notification" %>
-                                    </div>
-                                    <div class="notificationFooter"><a class="notify-all">Xem tất cả</a></div>
-                                </div>
-                            </li>
-                            <li class="menu-item-has-children dropdown login-f pull-right">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <img src=""
-                                        class="img-circle avatar" style="width: 36px; height: 36px;" id="avatar">
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><%= link_to current_user.name, edit_user_registration_path %></li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <%= link_to "Đăng xuất", destroy_user_session_path, method: :delete, class: "btn btn-link" %>
-                                    </li>
-                                </ul>
-                            </li>
-                            <% else %>
-                            <li class="pull-right">
-                                <%= link_to "Đăng ký", new_user_registration_path %>
-                            </li>
-                            <% end %>
-                          </ul>
-                    </nav>
-                </div>
-                </li>
-            </ul><!-- /.navbar-nav -->
-        </div><!-- /.container -->
-    </nav>
-    <div class="search-bar-wrap">
-        <div class="container">
-            <% if user_signed_in? %>
-                <div class="row">
-                    <div class="col-md-8">
-                        <%= render "shared/search_form" %>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="post-recipe-button">
-                            <%= link_to new_menu_path, class: "btn btn-block btn-post-recipe" do %>
-                                Đăng thực đơn
-                            <span class="fa fa-upload"></span>
-                            <% end %>
-                        </div>
-                    </div>
-                </div>
-            <% end %>
+                  </li>
+                  <li class="menu-item-has-children dropdown login-f pull-right">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img> <%= image_tag current_user.avatar.url, class: "avatar", width: "36px", height: "36px", id:"avatar" %> 
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li><%= link_to current_user.name, current_user %></li>
+                        <li class="divider"></li>
+                        <li>
+                          <%= link_to "Đăng xuất", destroy_user_session_path, method: :delete, class: "btn btn-link" %>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                          <%= link_to "Chỉnh sửa thông tin cá nhân", edit_user_registration_path %>
+                        </li>
+                      </ul>
+                  </li>
+                  <% else %>
+                  <li class="pull-right">
+                    <%= link_to "Đăng ký", new_user_registration_path %>
+                  </li>
+                <% end %>
+              </ul>
+          </nav>
         </div>
+    </li>
+      </ul><!-- /.navbar-nav -->
+    </div><!-- /.container -->
+  </nav>
+    <div class="search-bar-wrap">
+      <div class="container">
+        <% if user_signed_in? %>
+          <div class="row">
+            <div class="col-md-8">
+                <%= render "shared/search_form" %>
+            </div>
+            <div class="col-md-4">
+              <div class="post-recipe-button">
+                <%= link_to new_menu_path, class: "btn btn-block btn-post-recipe" do %>
+                  Đăng thực đơn
+                <span class="fa fa-upload"></span>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
 
     <script>

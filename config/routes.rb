@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :menus do
     resources :comments, only:[:create, :destroy, :edit]
     resources :foods
+    resources :tags, only: [:new, :create]
   end
 
   resources :menus do
@@ -27,7 +28,7 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :tags 
+  resources :tags, except: [:new, :create]
   resources :relationships, only: [:create, :destroy]
   resources :searchs, only: [:index] do
     collection {post :search, to: "searchs#search"}

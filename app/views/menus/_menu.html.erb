@@ -8,9 +8,12 @@
         <%= link_to menu, method: :delete, data: { confirm: 'Bạn chắc chắn?' }, class: "pull-right btn-box-tool" do %>
           <i class="fa fa-times"></i>
         <% end %>
-         <%= link_to edit_menu_path(menu), class: "pull-right btn-box-tool" do %>
-          <i class="fa fa-pencil"></i>
+        <%= link_to edit_menu_path(menu), class: "pull-right btn-box-tool" do %>
+          <i class="fa fa-edit"></i>
         <% end %>
+      <% end %>
+      <%= link_to new_menu_tag_path(menu), class: "pull-right btn-box-tool" do %>
+          <i class="fa fa-plus"></i>
       <% end %>
     </span>
   </div>

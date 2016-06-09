@@ -3,7 +3,7 @@
 <%= form_for @menu, :html => { :multipart => true }  do |f| %>
   <div class="form-bottom b1">
     <div class="input-group col-xs-12 col-md-12" style="margin-bottom: 20px;">
-      <%= f.label " Tên menu", class: "input-group-addon fa fa-pencil", style: "width: 200px; height: 20px ;text-transform: uppercase; background: #91CB5B; color: white;" %>
+      <%= f.label " Tên menu", class: "input-group-addon fa fa-edit", style: "width: 200px; height: 20px ;text-transform: uppercase; background: #91CB5B; color: white;" %>
       <%= f.text_field :menuName, class: "form-control", placeholder: "Nhập tên menu..." %>
     </div>
 
@@ -19,11 +19,11 @@
     <% @menu.foods.each_with_index do |value, index| %>
       <%= hidden_field_tag "foods[id][]", value.id %>
       <div class="input-group col-xs-12 col-md-12" style="margin-bottom: 20px;">
-          <%= label_tag "foods[name][]", " Tên món an", class: "input-group-addon fa fa-pencil", style: "width: 200px; height: 20px ;text-transform: uppercase; background: #91CB5B; color: white;" %>
+          <%= label_tag "foods[name][]", " Tên món an", class: "input-group-addon fa fa-edit", style: "width: 200px; height: 20px ;text-transform: uppercase; background: #91CB5B; color: white;" %>
           <%= text_field_tag "foods[name][]", value.name,  class: "form-control", placeholder: "Nhập tên menu..." %>
       </div>
       <div class="input-group col-xs-12 col-md-12" style="margin-bottom: 20px;">
-          <%= label_tag "foods[post_recipe][]", " Công thức ", class: "input-group-addon fa fa-pencil", style: "width: 200px; height: 20px ;text-transform: uppercase; background: #91CB5B; color: white;" %>
+          <%= label_tag "foods[post_recipe][]", " Công thức ", class: "input-group-addon fa fa-edit", style: "width: 200px; height: 20px ;text-transform: uppercase; background: #91CB5B; color: white;" %>
           <%= text_field_tag "foods[post_recipe][]", value.post_recipe,  class: "form-control", placeholder: "Nhập công thức..." %>
       </div>
     <% end %>

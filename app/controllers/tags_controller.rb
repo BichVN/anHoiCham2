@@ -1,9 +1,10 @@
 class TagsController < ApplicationController
 before_action :authenticate_user!
-
   def create
     @tag = current_user.tags.build(tag_params)
     if @tag.save
+      @menu = Menu.find_by id: params[:menu_id]
+      @menu.update_attributes tag: @tag
       flash[:success] = "tag created!"
       redirect_to root_url
     else
@@ -13,7 +14,6 @@ before_action :authenticate_user!
 
   def new
     @tag = Tag.new
-    #byebug
   end
 
   def index

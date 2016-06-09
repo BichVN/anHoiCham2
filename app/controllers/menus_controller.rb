@@ -41,6 +41,7 @@ class MenusController < ApplicationController
           params[:foods][:id].each_with_index do |id, index|
             food = Food.find id.to_i
             food.update_attributes(id: id, name: params[:foods][:name][index], post_recipe: params[:foods][:post_recipe][index], 
+              status: params[:foods][:status][index], ask_user_id: params[:foods][:ask_user_id][index],
               menu_id: @menu.id)
           end
         end
@@ -81,13 +82,11 @@ class MenusController < ApplicationController
     end
   end
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_menu
       @menu = Menu.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def menu_params
-      params.require(:menu).permit(:menuName, :content, {imgs: []}, :foodName, :ingredientName, :quality)
+      params.require(:menu).permit(:menuName, :content, {imgs: []}, params[:foods] )
     end
 end

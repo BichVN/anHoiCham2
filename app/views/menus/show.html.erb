@@ -1,13 +1,16 @@
 <div class="post">
   <div class="user-block">
-    <img class="img-circle img-bordered-sm" src="https://almsaeedstudio.com/themes/AdminLTE/dist/img/user6-128x128.jpg">
+    <img> <%= image_tag current_user.avatar.url, class: "img img-circle img-bordered-sm", width: "36px", height: "36px"%>
     <span class="description"><%= link_to @menu.menuName, @menu %></span>
     <span class="username">
       <%= link_to @menu.user.name, @menu.user %>
       <% if current_user.id == @menu.user.id %>
         <%= link_to @menu, method: :delete, data: { confirm: 'Bạn chắc chắn?' }, class: "pull-right btn-box-tool" do %>
-          <i class="fa fa-times"></i>
-        <% end %>
+        <i class="fa fa-times"></i>
+      <% end %>
+       <%= link_to edit_menu_path(@menu), class: "pull-right btn-box-tool" do %>
+        <i class="fa fa-pencil"></i>
+      <% end %>
       <% end %>
     </span>
   </div>
@@ -32,12 +35,6 @@
       <% end %>
     </li>
     <li><%= @menu.score %></li>
-    <% else %>
-    <li>
-      <%= link_to edit_menu_path(@menu), class: "pull-right btn-box-tool" do %>
-        <i class="fa fa-pencil"></i> Sửa menu
-      <% end %>
-    </li>
     <% end %>
     <li class="pull-right">
       <a class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i>

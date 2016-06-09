@@ -7,14 +7,14 @@
   &nbsp;&nbsp;&nbsp;
   <b>Công thức:</b>
   <span id="ask-food-<%= food.id %>">
-    <% case food.status
-       when 0 %>
-        <%= link_to ask_food_path(food), remote: true, method: :put do %>
-          <i class="fa fa-question-circle-o margin-r-5"></i> Hỏi công thức
-        <% end %>
-    <% when 1 %>
-        <a><i class='fa fa-hourglass-half margin-r-5'></i> Sắp có công thức</a>
-    <% end %>
+      <% case food.status
+         when 0 %>
+          <%= link_to ask_food_path(food), remote: true, method: :put do %>
+            <i class="fa fa-question-circle-o margin-r-5"></i> Hỏi công thức
+          <% end %>
+      <% when 1 %>
+          <a><i class='fa fa-hourglass-half margin-r-5'></i> Sắp có công thức</a>
+      <% end %>
   </span><br>
   <div style="margin-left: 18px"><%= food.post_recipe %></div>
 </span>

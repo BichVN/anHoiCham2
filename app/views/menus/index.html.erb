@@ -1,33 +1,45 @@
 <p id="notice"><%= notice %></p>
-
 <h1>Listing Menus</h1>
-    <% @menus.each do |menu| %>
-      <div class="post">
-        <div class="user-block">
-          <img class="img-circle img-bordered-sm" src="https://almsaeedstudio.com/themes/AdminLTE/dist/img/user6-128x128.jpg">
-          <span class="description"><%= link_to menu.menuName, menu %></span>
-          <span class="username">
-            <%= link_to menu.user.name, menu.user %>
-            <% if current_user.id == menu.user.id %>
-              <%= link_to menu, method: :delete, data: { confirm: 'Bạn chắc chắn?' }, class: "pull-right btn-box-tool" do %>
-                <i class="fa fa-times"></i>
-              <% end %>
-            <% end %>
-          </span>
+  <% @menus.each do |menu| %>
+    <div class="timeline">
+      <span class="timeline-label">
+        <span class="label label-primary"><%= menu.created_at.strftime("%Y:%m:%d") %></span>
+      </span>
+      <div class="timeline-item timeline-item-right">
+        <div class="timeline-point timeline-point-default">
+          <i class="fa fa-money"></i>
         </div>
-        <div class="row margin-bottom">
-          <p><%= menu.updated_at.strftime("%Y:%m:%d") %></p>
-          <p><%= menu.updated_at.strftime("%H:%M:%S") %></p>
-          <%= menu.content %><br/>
-          <% menu.get_list.each do |img_link| %>
-            <div class="col-sm-6">
-              <%= image_tag img_link, class: "img-responsive" %>
+        <div class="timeline-event">
+          <div class="timeline-heading post">
+              <div class="user-block">
+                <img> <%= image_tag current_user.avatar.url, class: "img img-circle img-bordered-sm", width: "36px", height: "36px"%>
+                <span class=""><%= link_to menu.menuName, menu %></span>
+                <span class="username">
+                  <% if current_user.id == menu.user.id %>
+                    <%= link_to menu, method: :delete, data: { confirm: 'Bạn chắc chắn?' }, class: "pull-right btn-box-tool" do %>
+                      <i class="fa fa-times"></i>
+                    <% end %>
+                     <%= link_to edit_menu_path(menu), class: "pull-right btn-box-tool" do %>
+                      <i class="fa fa-pencil"></i>
+                    <% end %>
+                  <% end %>
+                </span>
             </div>
-          <% end %>
-          <%= render menu.foods %>
+          </div>
+          <div class="timeline-body">
+            <p><%= menu.content %><br/>
+              <% menu.get_list.each do |img_link| %>
+                <div class="col-sm-6">
+                  <%= image_tag img_link, class: "img-responsive" %>
+                </div>
+              <% end %>
+              <%= render menu.foods %>
+            </p>
+          </div>
+          <div class="timeline-footer">
+            <p class="text-right"><%= menu.updated_at.strftime("%H:%M:%S") %></p>
+          </div>
         </div>
       </div>
-    <% end %>
-</table>
-
+  <% end %>
 <br>

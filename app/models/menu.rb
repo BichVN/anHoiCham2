@@ -2,9 +2,9 @@ class Menu < ActiveRecord::Base
   default_scope -> { order(updated_at: :desc) }
   belongs_to :user
   belongs_to :tag
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
-  has_many :foods
+  has_many :foods, dependent: :destroy
   accepts_nested_attributes_for :foods,
     :allow_destroy => true,
     :reject_if     => :all_blank

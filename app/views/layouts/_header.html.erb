@@ -53,20 +53,20 @@
                     </div>
                   </li>
                   <li class="menu-item-has-children dropdown login-f pull-right">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img> <%= image_tag current_user.avatar.url, class: "avatar", width: "36px", height: "36px", id:"avatar" %> 
-                      </a>
-                      <ul class="dropdown-menu">
-                        <li><%= link_to current_user.name, current_user %></li>
-                        <li class="divider"></li>
-                        <li>
-                          <%= link_to "Đăng xuất", destroy_user_session_path, method: :delete, class: "btn btn-link" %>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                          <%= link_to "Chỉnh sửa thông tin cá nhân", edit_user_registration_path %>
-                        </li>
-                      </ul>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <img> <%= image_tag current_user.avatar.url, class: "avatar", width: "36px", height: "36px", id:"avatar" %> 
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><%= link_to current_user.name, current_user %></li>
+                      <li class="divider"></li>
+                      <li>
+                        <%= link_to "Đăng xuất", destroy_user_session_path, method: :delete, class: "btn btn-link" %>
+                      </li>
+                      <li class="divider"></li>
+                      <li>
+                        <%= link_to "Chỉnh sửa thông tin cá nhân", edit_user_registration_path %>
+                      </li>
+                    </ul>
                   </li>
                   <% else %>
                   <li class="pull-right">
@@ -85,7 +85,7 @@
         <% if user_signed_in? %>
           <div class="row">
             <div class="col-md-8">
-                <%= render "shared/search_form" %>
+              <%= render "shared/search_form" %>
             </div>
             <div class="col-md-4">
               <div class="post-recipe-button">

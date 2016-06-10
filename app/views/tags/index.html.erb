@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing tags</h1>
-
 <table>
   <thead>
     <tr>
@@ -17,14 +16,19 @@
       <tr>
         <td><%= tag.tag %></td>
         <td><%= tag.user.name %></td>
-          <%= render tag.menus %>
-          <td><%= link_to 'Show', tag %></td>
-          <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
-          <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <ul>
+            <% tag.menu_tags.each do |menu_tag| %>
+              <li><%= link_to menu_tag.menu.menuName, menu_tag.menu %></li>
+            <% end %>
+          </ul>
+        </td>
+        <td><%= link_to 'Show', tag %></td>
+        <!-- <td><%= link_to 'Edit', edit_tag_path(tag) %></td> -->
+        # <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160605043428) do
+ActiveRecord::Schema.define(version: 20160609142830) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "activity_type", limit: 4
@@ -47,6 +47,16 @@ ActiveRecord::Schema.define(version: 20160605043428) do
   end
 
   add_index "foods", ["menu_id"], name: "index_foods_on_menu_id", using: :btree
+
+  create_table "menu_tags", force: :cascade do |t|
+    t.integer  "menu_id",    limit: 4
+    t.integer  "tag_id",     limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "menu_tags", ["menu_id"], name: "index_menu_tags_on_menu_id", using: :btree
+  add_index "menu_tags", ["tag_id"], name: "index_menu_tags_on_tag_id", using: :btree
 
   create_table "menus", force: :cascade do |t|
     t.string   "menuName",   limit: 255
@@ -122,6 +132,8 @@ ActiveRecord::Schema.define(version: 20160605043428) do
   add_foreign_key "comments", "menus"
   add_foreign_key "comments", "users"
   add_foreign_key "foods", "menus"
+  add_foreign_key "menu_tags", "menus"
+  add_foreign_key "menu_tags", "tags"
   add_foreign_key "menus", "tags"
   add_foreign_key "menus", "users"
   add_foreign_key "tags", "users"

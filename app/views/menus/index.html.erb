@@ -15,6 +15,7 @@
                 <img> <%= image_tag current_user.avatar.url, class: "img img-circle img-bordered-sm", width: "36px", height: "36px"%>
                 <span class=""><%= link_to menu.menuName, menu %></span>
                 <span class="username">
+                  <%= link_to menu.user.name, menu.user %>
                   <% if current_user.id == menu.user.id %>
                     <%= link_to menu, method: :delete, data: { confirm: 'Bạn chắc chắn?' }, class: "pull-right btn-box-tool" do %>
                       <i class="fa fa-times"></i>

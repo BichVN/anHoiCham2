@@ -1,7 +1,8 @@
 class Menu < ActiveRecord::Base
   default_scope -> { order(updated_at: :desc) }
   belongs_to :user
-  belongs_to :tag
+  # belongs_to :tag
+  has_many :menu_tags, dependent: :destroy
   has_many :comments, dependent: :destroy
 
   has_many :foods, dependent: :destroy

@@ -1,0 +1,9 @@
+<%= form_tag menu_menu_tags_path(@menu) do  %>
+  <div class="field">
+    <%= label_tag :tag, "Nhập tag name:" %><br>
+    <%= text_field_tag :tag %>
+  </div>
+  <div class="actions">
+    <%= button_tag "Thêm tag" %>
+  </div>
+<% end %>

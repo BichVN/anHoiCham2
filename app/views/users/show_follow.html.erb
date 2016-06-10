@@ -1,6 +1,8 @@
   <div class="row">
   <aside class="col-md-4">
-    <section class="user_info">
+    <div class="user-block">
+      <img> <%= image_tag current_user.avatar.url, class: "img img-circle img-bordered-sm", width: "36px", height: "36px"%>
+      <span class="username">
       <h1><%= @user.name %></h1>
       <span><%= link_to "view my profile", @user %></span>
       <span><b>menus:</b> <%= @user.menus.count %></span>
@@ -18,3 +20,4 @@
     <% end %>
   </div>
 </div>
+

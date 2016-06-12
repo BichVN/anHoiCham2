@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+
+.list-tags{
+	width: 100%;
+}
+.list-tags td{
+	padding: 10px; 
+}

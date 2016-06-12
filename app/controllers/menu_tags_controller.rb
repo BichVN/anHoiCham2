@@ -3,6 +3,7 @@ class MenuTagsController < ApplicationController
   def new
     @menu_tag = MenuTag.new
     @menu = Menu.find_by id: params[:menu_id]
+    @tags = current_user.tags.all
   end
 
   def create
@@ -12,6 +13,12 @@ class MenuTagsController < ApplicationController
     if @menu.menu_tags.find_by(tag: tag).nil?
       @menu.menu_tags.create tag: tag
     end
+    redirect_to tags_path
+  end
+  def chose
+    @menu = Menu.find_by id: params[:menu_id]
+    tag = Tag.find_by id: params[:tag_id]
+    @menu.menu_tags.create tag: tag
     redirect_to tags_path
   end
 end

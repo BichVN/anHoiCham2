@@ -1,0 +1,42 @@
+Các trang cần show :
+	Login/Logout-Sign in
+		Login bình thường
+		Login with gg, facebook (trong trường hợp k show được fb thì chỉ cần show gg thôi)
+	Xem, chỉnh sửa thông tin cá nhân
+	Menu: Xem, Edit, Create, Delete
+		Đăng bài (đăng bài) 
+			*** Hiện chưa bắt lỗi được việc thiếu trường
+		Edit
+		Delete
+		Xem lịch sử ăn uống(show theo thời gian)
+	Bình luận:
+	Vote: 
+	Tìm kiếm theo user, menu
+	Thông báo
+	Đánh dấu bài viết theo thẻ tag ( cần sửa để show)
+
+Đặt vấn đề
+
+皆様、おはようございます。
+私はHEDSPIのk56のVu Ngoc Bich と申します。
+本日、ご時間いただき、孫とにありがとうございます。
+早速ですが、これから、RoR技術研究、共有メニューウェブサイト開発」という卒業論文発表させて致ただきます。
+これから、よろしくお願いします。
+
+ベトナムで、現時代は男女同権時代と言われますが、女性の役割が増えって行くと意味しています。
+ご主人と共働きをして、帰ってから、家事をしなければなりません。
+女性の家事を手伝うために、いろいろな機会を発明されています。
+洗濯機や掃除機や食器洗い機などです。
+しかし、どんな発明でも、手伝うできないことのは、家族の料理です。
+
+家族の皆たちは机周りに揃って、話しながら、食事をするという雰囲気、ベトナム人にとってとても大切と思います。
+ですから、ベトナムの女性は家族食事を大事にしています。
+
+私のお母さん、おばあさん、私の周りの女性の問題を何にか手伝いたいから、私はこの共有メニューサイトを開発始めました。
+
+このサイトのルビーオンラインで造りました。
+
+
+
+Trình bày nội dung đồ án
+1. Biểu đồ usecase

@@ -3,11 +3,13 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
 
+  get '/chosetag/:menu_id/:tag_id', to: 'menu_tags#chose', as: 'chosetag'
+
   resources :menus do
     resources :comments, only:[:create, :destroy, :edit]
     resources :foods
     # resources :tags, only: [:new, :create]
-    resources :menu_tags, only: [:new, :create]
+    resources :menu_tags
   end
 
   resources :menus do

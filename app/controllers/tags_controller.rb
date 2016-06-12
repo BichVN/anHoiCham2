@@ -16,6 +16,11 @@ before_action :authenticate_user!
     @tag = Tag.new
   end
 
+  def destroy
+    Tag.find(params[:id]).destroy
+    redirect_to tags_path
+  end
+
   def index
     @tags = current_user.tags.all
     @menu = Menu.new

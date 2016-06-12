@@ -1,5 +1,8 @@
-<li>
-  <img> <%= image_tag user.avatar.url,  class: "img-circle img-bordered-sm"%> <img>
-  <h3>Name: <%= user.name %></h3>
-  <h3>Email: <%= user.email %></h3>
-</li>
+<div class = "user-block">
+  <img> <%= image_tag current_user.avatar.url, class: "img img-circle img-bordered-sm", width: "36px", height: "36px"%>
+  <span class="username">
+    <h3>Name: <%= user.name %></h3>
+		<h3>Email: <%= user.email %></h3>
+	</span>
+</div>
+  

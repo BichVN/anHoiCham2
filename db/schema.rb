@@ -40,10 +40,10 @@ ActiveRecord::Schema.define(version: 20160609142830) do
     t.string   "name",        limit: 255
     t.text     "post_recipe", limit: 65535
     t.integer  "menu_id",     limit: 4
-    t.integer  "status",      limit: 4,     default: 0
+    t.integer  "status",      limit: 4
     t.integer  "ask_user_id", limit: 4
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   add_index "foods", ["menu_id"], name: "index_foods_on_menu_id", using: :btree

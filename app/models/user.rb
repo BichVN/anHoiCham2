@@ -53,6 +53,7 @@ class User < ActiveRecord::Base
         uid:auth.uid,
         name: data["name"],
         email:auth.info.mail,
+        avatar: auth.info.image,
         password:Devise.friendly_token[0,10],
         )
     end

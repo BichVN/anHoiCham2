@@ -23,14 +23,17 @@ class MenusController < ApplicationController
 
       if params[:food]
         params[:food].each_with_index do |food,index|
-          Food.create(name: food, post_recipe: params[:post_recipe][index], menu_id: @menu.id)
+        if params[:post_recipe][index] == ''
+          Food.create(name: food, post_recipe: params[:post_recipe][index], menu_id: @menu.id, status: "2")
+        else
+          Food.create(name: food, post_recipe: params[:post_recipe][index], menu_id: @menu.id, status: "0")
         end
       end
-
-      redirect_to root_url
-    else
-      render :action => 'new'
-    end
+        redirect_to root_url
+      else
+        render :action => 'new'
+      end
+  end
   end
 
   def update

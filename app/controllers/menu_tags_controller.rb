@@ -15,6 +15,20 @@ class MenuTagsController < ApplicationController
     end
     redirect_to tags_path
   end
+
+  def edit
+    @menu = Menu.find_by id: params[:menu_id]
+    @tag = current_user.tags.find_by(id: params[:id])
+    if @menu.menu_tags.find_by(tag: @tag).nil?
+      @menu.menu_tags.create tag: @tag
+    end
+
+    redirect_to root_path
+    # respond_to do |format|
+    #   format.js
+    # end
+  end
+
   def chose
     @menu = Menu.find_by id: params[:menu_id]
     tag = Tag.find_by id: params[:tag_id]

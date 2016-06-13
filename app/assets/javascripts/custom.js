@@ -13,7 +13,6 @@
         $(this).addClass('active');
         e.preventDefault();
     });
-
 });
 
 ;(function($) {
@@ -82,76 +81,7 @@
                 });
             });
         };
-        //** Dropdown menu
-        //
-        var dropdownMenuEffect = function() {
-            $('#ht-main-nav li.dropdown-menu').each(function() {
-                $(this).on({
-                    mouseenter: function(e) {
-                        $(this).addClass('active');
-                        $(this).find('ul').first()
-                            .css({display:"block"})
-                            .stop()
-                            .animate(
-                            {
-                                opacity: 1
-                            },
-                            {
-                                duration: 300
-                            }
-                        );
-                    },
-                    mouseleave: function(e) {
-                        $(this).removeClass('active');
-                        $(this).find('ul').first()
-                            .stop()
-                            .animate(
-                            {
-                                opacity: 0
-                            },
-                            {
-                                duration: 300,
-                                complete : function() {
-                                    $(this).css({display:"none"});
-                                }
-                            }
-                        );
-                    }
-                });
-                $(this).find('ul').first().find('li').on({
-                    mouseenter: function(e) {
-                        $(this).addClass('active');
-                        $(this).find('ul').first()
-                            .css({display:"block"})
-                            .stop()
-                            .animate(
-                            {
-                                opacity: 1
-                            },
-                            {
-                                duration: 300
-                            }
-                        );
-                    },
-                    mouseleave: function(e) {
-                        $(this).removeClass('active');
-                        $(this).find('ul').first()
-                            .stop()
-                            .animate(
-                            {
-                                opacity: 0
-                            },
-                            {
-                                duration: 300,
-                                complete : function() {
-                                    $(this).css({display:"none"});
-                                }
-                            }
-                        );
-                    }
-                })
-            });
-        };
+       
         //** Search form
         //
         var searchFormExpand = function() {
@@ -459,46 +389,6 @@
         });
     };
 
-    HAINTHEME.googleMapAPI = function() {
-        var mapCounter = 1;
-        $('.ht-map').each(function(){
-            $(this).attr('id','ht-map-'+ mapCounter);
-            mapCounter++;
-            var coor = $(this).data('coor');
-            var id = $(this).attr('id');
-            var zooming = $(this).data('zoom');
-            var mapType = $(this).data('map-type');
-            var controlUI = $(this).data('control-ui') ? false : true;
-            var scrollWheel = $(this).data('scroll-wheel');
-            var marker = $(this).data('marker');
-            var style = $(this).data('style');
-
-            $(this).css('height',$(this).data('height'));
-
-            function initialize() {
-                var map_canvas = document.getElementById(id);
-                var myLatlng = new google.maps.LatLng(coor[0],coor[1]);
-                var map_options = {
-                    center: myLatlng,
-                    zoom: zooming,
-                    mapTypeId: mapType,
-                    disableDefaultUI: controlUI,
-                    scrollwheel: scrollWheel,
-                    styles: style
-                }
-                var map = new google.maps.Map(map_canvas, map_options);
-                if (marker != "") {
-                    var mapMarker = new google.maps.Marker({
-                        position: myLatlng,
-                        map: map,
-                        title: marker
-                    });
-                }
-            }
-            google.maps.event.addDomListener(window, 'load', initialize);
-        });
-    };
-
     HAINTHEME.recipeSubmit = function() {
         var minutesConverter = function(minute) {
             var hou = Math.floor(minute / 60);
@@ -536,26 +426,6 @@
                 }
             });
         })
-    };
-
-    HAINTHEME.parallaxGen = function() {
-        $('[data-ht-parallax]').each(function() {
-            var dataMove = $(this).attr("data-ht-parallax");
-            var dataAttrFrom, dataFrom, dataAttrTo, dataTo;
-            if($(this).is('#ht-top-area')) {
-                var height = $(this).outerHeight();
-                dataAttrFrom = 'data-0';
-                dataFrom = 'background-position:0px 0px';
-                dataAttrTo = 'data-' + height;
-                dataTo = 'background-position: 0px ' + dataMove + 'px';
-            } else {
-                dataAttrFrom = 'data-bottom-top';
-                dataFrom = 'background-position: 0px -' + dataMove + 'px';
-                dataAttrTo = 'data-top-bottom';
-                dataTo = 'background-position:0px 0px';
-            }
-            $(this).attr(dataAttrFrom,dataFrom).attr(dataAttrTo,dataTo);
-        });
     };
 
     HAINTHEME.others = function() {
@@ -621,14 +491,7 @@
         $('html').removeClass('no-js');
 
         HAINTHEME.navbar();
-        HAINTHEME.slider();
-        HAINTHEME.isotope();
-        HAINTHEME.masonry();
-        HAINTHEME.commentReply();
-        HAINTHEME.googleMapAPI();
         HAINTHEME.recipeSubmit();
-        HAINTHEME.parallaxGen();
-        HAINTHEME.parallaxInit();
         HAINTHEME.others();
     });
 })(jQuery); // EOF

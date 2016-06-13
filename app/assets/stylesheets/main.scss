@@ -6112,8 +6112,6 @@ button.close {
   margin-left: auto;
   margin-right: auto; }
 
-.pull-right {
-  float: right !important; }
 .pull-right a{
   background-color: transparent !important; }
 
@@ -13777,4 +13775,37 @@ div.nmh-main-navbar {
 }
 .vote-button {
     margin-top: -25px;
+}
+.tagContainer {
+    width: 230px;
+    top: auto;
+    margin-right: 20px;
+    overflow-y: scroll;
+    height: 335px;
+}
+.tagContainer:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    color: transparent;
+    border: 10px solid black;
+    border-color: transparent transparent #ddd transparent;
+    margin-top: -25px;
+    right: 7px;
+    top: auto;
+}
+.tagTitle {
+  padding: 8px 10px 0 0;
+  text-align: center;
+}
+.tagContainer .divider {
+  margin: 3px 0;
+}
+.tagContainer li {
+  padding: 3px 7px;
+}
+.tagContainer li > span{
+  float: right;
 }

@@ -1,7 +1,6 @@
 class Menu < ActiveRecord::Base
   default_scope -> { order(updated_at: :desc) }
   belongs_to :user
-  # belongs_to :tag
   has_many :menu_tags, dependent: :destroy
   has_many :comments, dependent: :destroy
 
@@ -38,5 +37,9 @@ class Menu < ActiveRecord::Base
       end
     end
     return output
+  end
+
+  def has_tag tag
+    !self.menu_tags.find_by(tag: tag).nil?
   end
 end

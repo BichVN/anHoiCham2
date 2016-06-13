@@ -12,19 +12,19 @@
         <div class="timeline-event">
           <div class="timeline-heading post">
               <div class="user-block">
-                <img> <%= image_tag current_user.avatar.url, class: "img img-circle img-bordered-sm", width: "36px", height: "36px"%>
-                <span class=""><%= link_to menu.menuName, menu %></span>
-                <span class="username">
+                <%= image_tag current_user.avatar.url, class: "img img-circle img-bordered-sm", width: "36px", height: "36px"%>
+                <span class="username" style="margin-top: -55px;">
                   <%= link_to menu.user.name, menu.user %>
                   <% if current_user.id == menu.user.id %>
                     <%= link_to menu, method: :delete, data: { confirm: 'Bạn chắc chắn?' }, class: "pull-right btn-box-tool" do %>
-                      <i class="fa fa-times"></i>
+                      <i class="fa fa-times" style="margin-top: 8px"></i>
                     <% end %>
                     <%= link_to edit_menu_path(menu), class: "pull-right btn-box-tool" do %>
-                      <i class="fa fa-edit"></i>
+                      <i class="fa fa-edit" style="margin-top: 8px"></i>
                     <% end %>
                   <% end %>
                 </span>
+                <span style="margin-left: 50px;"><%= link_to menu.menuName, menu %></span>
             </div>
           </div>
           <div class="timeline-body">

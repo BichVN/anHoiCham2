@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/chosetag/:menu_id/:tag_id', to: 'menu_tags#chose', as: 'chosetag'
 
   resources :menus do
-    resources :comments, only:[:create, :destroy, :edit]
+    resources :comments, only: [:create, :destroy, :edit]
     resources :foods
     # resources :tags, only: [:new, :create]
     resources :menu_tags

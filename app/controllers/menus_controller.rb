@@ -43,9 +43,12 @@ class MenusController < ApplicationController
         if params[:foods]
           params[:foods][:id].each_with_index do |id, index|
             food = Food.find id.to_i
-            food.update_attributes(id: id, name: params[:foods][:name][index], post_recipe: params[:foods][:post_recipe][index], 
-              status: params[:foods][:status][index], ask_user_id: params[:foods][:ask_user_id][index],
-              menu_id: @menu.id)
+            food.update_attributes(
+              id: id,
+              name: params[:foods][:name][index],
+              post_recipe: params[:foods][:post_recipe][index], 
+              status: params[:foods][:post_recipe][index].empty? ? "1" : "2"
+            )
           end
         end
         format.html { redirect_to @menu, notice: 'Menu was successfully updated.' }

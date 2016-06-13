@@ -1,22 +1,30 @@
-<%= form_for(@tag) do |f| %>
-  <% if @tag.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@tag.errors.count, "error") %> prohibited this tag from being saved:</h2>
-
-      <ul>
-      <% @tag.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<ul class="dropdown-menu tagContainer pull-right" id="tagContainer">
+    <li class="tagTitle">Gắn thẻ cho bài viết</li>
+    <li class="divider"></li>
+    <li>
+      <%= form_for(Tag.new, remote: true) do |f| %>
+        <div class="field">
+          <%= f.text_field :tag, placeholder: "Tên tag" %>
+          <%= f.hidden_field :menu_id, value: menu.id %>
+        </div>
+        <div class="actions">
+          <%= f.submit "Thêm tag" %>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :tag %><br>
-    <%= f.text_field :tag %>
-  </div>
-  
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+    </li>
+    <% if current_user.tags.count > 0 %>
+      <li class="divider"></li>
+      <% current_user.tags.each do |tag| %>
+        <li>
+            <%= tag.tag %>
+            <% if menu.has_tag(tag) %>
+              <span>Đã thêm</span>
+            <% else %>
+              <span id="tag-<%= tag.id %>">
+                <%= link_to 'Thêm', edit_menu_menu_tag_path(menu, tag) %>
+              </span>
+            <% end %>
+        </li>
+      <% end %>
+    <% end %>
+</ul>

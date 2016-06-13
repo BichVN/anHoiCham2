@@ -1,5 +1,14 @@
 <%= form_for @menu, :html => { :multipart => true }  do |f| %>
     <div class="form-bottom b1">
+        <% if flash.any? %>
+        <div class="alert alert-danger">
+          <ul>
+            <% flash.each do |key, value| %>
+              <li><%= value %></li>
+            <% end %>
+          </ul>
+        </div>
+        <% end %>
         <div class="input-group col-xs-12 col-md-12" style="margin-bottom: 20px;">
             <%= f.label " Tên menu", class: "input-group-addon fa fa-edit", style: "width: 200px; height: 20px ;text-transform: uppercase; background: #91CB5B; color: white;" %>
             <%= f.text_field :menuName, class: "form-control", placeholder: "Nhập tên menu..." %>

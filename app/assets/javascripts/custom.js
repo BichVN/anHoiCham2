@@ -202,7 +202,7 @@
         //
         stickyNav();
         megaMenuEffect();
-        dropdownMenuEffect();
+        // dropdownMenuEffect();
         searchFormExpand();
         mobileNav();
         mobileSubNav();
@@ -492,7 +492,7 @@
 
         HAINTHEME.navbar();
         HAINTHEME.recipeSubmit();
-        HAINTHEME.others();
+        // HAINTHEME.others();
     });
 })(jQuery); // EOF
 

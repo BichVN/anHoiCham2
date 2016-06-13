@@ -18,22 +18,25 @@ class MenusController < ApplicationController
 
   def create
     @menu = current_user.menus.build(menu_params)
-    if @menu.save
-      flash[:success] = "menus created!"
 
-      if params[:food]
+    if params[:food]
+      if @menu.save
         params[:food].each_with_index do |food,index|
-        if params[:post_recipe][index] == ''
-          Food.create(name: food, post_recipe: params[:post_recipe][index], menu_id: @menu.id, status: "2")
-        else
-          Food.create(name: food, post_recipe: params[:post_recipe][index], menu_id: @menu.id, status: "0")
+          if params[:post_recipe][index].empty?
+            Food.create(name: food, post_recipe: params[:post_recipe][index], menu_id: @menu.id, status: "0")
+          else
+            Food.create(name: food, post_recipe: params[:post_recipe][index], menu_id: @menu.id, status: "2")
+          end
         end
-      end
         redirect_to root_url
       else
+        flash[:warning] = "Vui lòng kiểm tra lại thông tin bạn vừa nhập !!"
         render :action => 'new'
       end
-  end
+    else
+      flash[:warning] = "Bạn chưa thêm món ăn nào vào menu !!"
+      render :action => 'new'
+    end
   end
 
   def update

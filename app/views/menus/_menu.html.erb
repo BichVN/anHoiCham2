@@ -15,7 +15,7 @@
         <%#= link_to new_menu_menu_tag_path(menu), class: "pull-right btn-box-tool" do %>
             <!-- <i class="fa fa-plus"></i> -->
         <%# end %>
-        <a id="addTagButton" class="dropdown-toggle pull-right btn-box-tool" data-toggle="dropdown">
+        <a class="dropdown-toggle pull-right btn-box-tool" data-toggle="dropdown">
           <i class="fa fa-heart"></i>
         </a>
         <%= render "tags/form", menu: menu %>
@@ -57,7 +57,7 @@
   <%= render 'shared/comment_form', menu: menu %>
 </div>
 <script type="text/javascript">
-  $("#tagContainer").click(function(e) {
+  $(".tagContainer").click(function(e) {
     e.stopPropagation();
   });
 </script>

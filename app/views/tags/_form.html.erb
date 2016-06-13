@@ -1,10 +1,10 @@
-<ul class="dropdown-menu tagContainer pull-right" id="tagContainer">
+<ul class="dropdown-menu tagContainer pull-right">
     <li class="tagTitle">Gắn thẻ cho bài viết</li>
     <li class="divider"></li>
     <li>
       <%= form_for(Tag.new, remote: true) do |f| %>
         <div class="field">
-          <%= f.text_field :tag, placeholder: "Tên tag" %>
+          <%= f.text_field :tag, placeholder: "Tên tag", class: "tag-namez" %>
           <%= f.hidden_field :menu_id, value: menu.id %>
         </div>
         <div class="actions">
